@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/custom_anim_screen.dart';
+import '../widgets/signup_form.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -17,6 +18,8 @@ class _SignUpPageState extends State<SignUpPage> {
   final _duration = const Duration(milliseconds: 750);
   final _durationIcon = const Duration(milliseconds: 450);
   final _psudoDuration = const Duration(milliseconds: 150);
+  bool _isCompleted = false;
+  bool _isKeyboardVisible = false;
 
   _navigateBack() async {
     await _animateContainerFromTopToBottom();
@@ -26,7 +29,7 @@ class _SignUpPageState extends State<SignUpPage> {
   _animateContainerFromBottomToTop() async {
     await Future.delayed(_psudoDuration);
     _height = 240;
-    _radioValue = 100;
+    _radioValue = 60;
     _iconHeight = 100;
     _iconWidth = 100;
     setState(() {});
@@ -43,13 +46,28 @@ class _SignUpPageState extends State<SignUpPage> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    _height = MediaQuery.of(context).size.height;
-    _radioValue = 0;
-    _iconHeight = 100;
-    _iconWidth = 100;
-    setState(() {});
+    if (!_isCompleted) {
+      _height = MediaQuery.of(context).size.height;
+      _radioValue = 0;
+      _iconHeight = 100;
+      _iconWidth = 100;
+      setState(() {});
 
-    _animateContainerFromBottomToTop();
+      _animateContainerFromBottomToTop();
+    }
+    _isCompleted = true;
+
+    if (WidgetsBinding.instance!.window.viewInsets.bottom > 0.0 &&
+        !_isKeyboardVisible) {
+      _height = 0;
+      _isKeyboardVisible = true;
+      setState(() {});
+    } else if (WidgetsBinding.instance!.window.viewInsets.bottom == 0.0 &&
+        _isKeyboardVisible) {
+      _height = 240;
+      _isKeyboardVisible = false;
+      setState(() {});
+    }
   }
 
   @override
@@ -63,6 +81,10 @@ class _SignUpPageState extends State<SignUpPage> {
         body: Stack(
           fit: StackFit.expand,
           children: [
+            SignupForm(
+              heightFake: _isKeyboardVisible ? 100 : 240,
+              onTapLogin: _navigateBack,
+            ),
             CustomAnimScreen(
               text: 'Register',
               isCompleted: _height == 240,

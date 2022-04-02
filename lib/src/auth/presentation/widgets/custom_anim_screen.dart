@@ -37,6 +37,7 @@ class CustomAnimScreen extends StatelessWidget {
           gradient: LunaColors.backgroundAuthGradient,
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(radioValue),
+            bottomRight: Radius.circular(radioValue),
           ),
         ),
         child: Stack(
@@ -61,8 +62,9 @@ class CustomAnimScreen extends StatelessWidget {
             FutureBuilder(
               future: Future.delayed(durationIcon),
               builder: (_, snapshot) => Positioned(
-                bottom: 40,
+                bottom: 20,
                 right: 24,
+                left: 24,
                 child: AnimatedOpacity(
                   opacity: isCompleted &&
                           snapshot.connectionState == ConnectionState.done
@@ -71,6 +73,7 @@ class CustomAnimScreen extends StatelessWidget {
                   duration: durationIcon,
                   child: Text(
                     text,
+                    textAlign: TextAlign.center,
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,

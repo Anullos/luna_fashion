@@ -21,20 +21,17 @@ class _LoginPageState extends State<LoginPage> {
   final _psudoDuration = const Duration(milliseconds: 150);
   bool _isCompleted = false;
   bool _isKeyboardVisible = false;
-
-  @override
-  void initState() {
-    super.initState();
-  }
+  bool _isOtherPage = false;
 
   _navigateSignUp() async {
     FocusScope.of(context).requestFocus(FocusNode());
     await _animateContainerFromTopToBottom();
-
+    _isOtherPage = true;
     Navigator.pushNamed(context, signupRoute).then((value) {
       if (value == true) {
         _animateContainerFromBottomToTop();
         _isCompleted = true;
+        _isOtherPage = false;
       }
     });
   }
@@ -42,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
   _animateContainerFromBottomToTop() async {
     await Future.delayed(_psudoDuration);
     _height = 240;
-    _radioValue = 100;
+    _radioValue = 60;
     _iconHeight = 100;
     _iconWidth = 100;
     setState(() {});
@@ -71,12 +68,16 @@ class _LoginPageState extends State<LoginPage> {
     _isCompleted = true;
 
     if (WidgetsBinding.instance!.window.viewInsets.bottom > 0.0 &&
-        !_isKeyboardVisible) {
+        !_isKeyboardVisible &&
+        _isCompleted &&
+        !_isOtherPage) {
       _height = 0;
       _isKeyboardVisible = true;
       setState(() {});
     } else if (WidgetsBinding.instance!.window.viewInsets.bottom == 0.0 &&
-        _isKeyboardVisible) {
+        _isKeyboardVisible &&
+        _isCompleted &&
+        !_isOtherPage) {
       _height = 240;
       _isKeyboardVisible = false;
       setState(() {});
