@@ -9,6 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'src/shared/presentation/l10n/generated/l10n.dart';
 import 'src/shared/presentation/utils/logger_config.dart';
+import 'src/shared/presentation/utils/providers_logger.dart';
 import 'routes.dart';
 
 Future<void> main() async {
@@ -17,7 +18,15 @@ Future<void> main() async {
 
   LoggerConfig.init(crashlytics: FirebaseCrashlytics.instance);
 
-  runZonedGuarded(() => runApp(const ProviderScope(child: MyApp())),
+  runZonedGuarded(
+      () => runApp(
+            const ProviderScope(
+              observers: [
+                ProvidersLogger(),
+              ],
+              child: MyApp(),
+            ),
+          ),
       FirebaseCrashlytics.instance.recordError);
 }
 

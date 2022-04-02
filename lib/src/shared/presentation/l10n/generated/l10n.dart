@@ -50,11 +50,111 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Prueba`
-  String get prueba {
+  /// `Email o contraseña incorrectos`
+  String get nonExistentUserWithEmailAndPassword {
     return Intl.message(
-      'Prueba',
-      name: 'prueba',
+      'Email o contraseña incorrectos',
+      name: 'nonExistentUserWithEmailAndPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error en el servidor`
+  String get serverError {
+    return Intl.message(
+      'Error en el servidor',
+      name: 'serverError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message(
+      'Login',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Correo electrónico`
+  String get email {
+    return Intl.message(
+      'Correo electrónico',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contraseña`
+  String get password {
+    return Intl.message(
+      'Contraseña',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `¿Olvidaste tu contraseña?`
+  String get forgotPassword {
+    return Intl.message(
+      '¿Olvidaste tu contraseña?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `¿No tienes una cuenta?`
+  String get dontHaveAccount {
+    return Intl.message(
+      '¿No tienes una cuenta?',
+      name: 'dontHaveAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Registrar`
+  String get signup {
+    return Intl.message(
+      'Registrar',
+      name: 'signup',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nombre completo`
+  String get fullName {
+    return Intl.message(
+      'Nombre completo',
+      name: 'fullName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirmar contraseña`
+  String get passwordConfirmation {
+    return Intl.message(
+      'Confirmar contraseña',
+      name: 'passwordConfirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `¿Ya tienes una cuenta?`
+  String get alderadyHaveAccount {
+    return Intl.message(
+      '¿Ya tienes una cuenta?',
+      name: 'alderadyHaveAccount',
       desc: '',
       args: [],
     );
@@ -67,6 +167,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'es'),
+      Locale.fromSubtags(languageCode: 'en'),
     ];
   }
 

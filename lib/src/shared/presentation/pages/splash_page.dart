@@ -1,13 +1,55 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../routes.dart';
+import '../../../auth/application/auth_controller.dart';
+import '../../application/providers.dart';
 import '../utils/luna_colors.dart';
 
-class SplashPage extends StatelessWidget {
+class SplashPage extends ConsumerStatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
 
   @override
+  ConsumerState<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends ConsumerState<SplashPage> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      ref
+          .read(authControllerProvider.notifier)
+          .initUser(FirebaseAuth.instance.currentUser);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    ref.listen<AuthStatus>(
+      authControllerProvider.select((value) => value.status),
+      (previous, next) {
+        if (previous != next) {
+          debugPrint('SplashPage verifing...');
+          if (next == AuthStatus.authenticated) {
+            final user = ref.read(authControllerProvider).user;
+            // Navigator.pushReplacementNamed(context, homeRoute,
+            //     arguments: user!.id);
+            if (user!.isOnBoardingCompleted) {
+              Navigator.pushNamed(context, homeRoute);
+            } else {
+              Navigator.pushNamed(context, loginRoute);
+              // Navigator.pushReplacement(context,
+              //     MaterialPageRoute(builder: (context) => const WizardPage()));
+            }
+          } else {
+            Navigator.pushNamed(context, loginRoute);
+          }
+        }
+      },
+    );
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(

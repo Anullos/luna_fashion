@@ -59,7 +59,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
     if (WidgetsBinding.instance!.window.viewInsets.bottom > 0.0 &&
         !_isKeyboardVisible) {
-      _height = 0;
+      _height = 60;
       _isKeyboardVisible = true;
       setState(() {});
     } else if (WidgetsBinding.instance!.window.viewInsets.bottom == 0.0 &&
@@ -68,6 +68,7 @@ class _SignUpPageState extends State<SignUpPage> {
       _isKeyboardVisible = false;
       setState(() {});
     }
+    
   }
 
   @override

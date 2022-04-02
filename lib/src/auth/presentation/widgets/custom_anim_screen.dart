@@ -47,8 +47,8 @@ class CustomAnimScreen extends StatelessWidget {
                 onTap: onTap,
                 child: AnimatedContainer(
                   duration: durationIcon,
-                  height: iconHeight,
-                  width: iconWidth,
+                  height: height < iconHeight ? height : iconHeight,
+                  width: height < iconHeight ? height : iconWidth,
                   curve: Curves.fastOutSlowIn,
                   foregroundDecoration: const BoxDecoration(
                     image: DecorationImage(

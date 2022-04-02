@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
         !_isKeyboardVisible &&
         _isCompleted &&
         !_isOtherPage) {
-      _height = 0;
+      _height = 60;
       _isKeyboardVisible = true;
       setState(() {});
     } else if (WidgetsBinding.instance!.window.viewInsets.bottom == 0.0 &&

@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a es locale. All the
+// This is a library that provides messages for a en locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -18,27 +18,26 @@ final messages = new MessageLookup();
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'es';
+  String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alderadyHaveAccount":
-            MessageLookupByLibrary.simpleMessage("¿Ya tienes una cuenta?"),
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "dontHaveAccount":
-            MessageLookupByLibrary.simpleMessage("¿No tienes una cuenta?"),
-        "email": MessageLookupByLibrary.simpleMessage("Correo electrónico"),
+            MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
         "forgotPassword":
-            MessageLookupByLibrary.simpleMessage("¿Olvidaste tu contraseña?"),
-        "fullName": MessageLookupByLibrary.simpleMessage("Nombre completo"),
+            MessageLookupByLibrary.simpleMessage("Forgot password?"),
+        "fullName": MessageLookupByLibrary.simpleMessage("Full name"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "nonExistentUserWithEmailAndPassword":
             MessageLookupByLibrary.simpleMessage(
-                "Email o contraseña incorrectos"),
-        "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
+                "User with email and password does not exist"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordConfirmation":
-            MessageLookupByLibrary.simpleMessage("Confirmar contraseña"),
-        "serverError":
-            MessageLookupByLibrary.simpleMessage("Error en el servidor"),
-        "signup": MessageLookupByLibrary.simpleMessage("Registrar")
+            MessageLookupByLibrary.simpleMessage("Password confirmation"),
+        "serverError": MessageLookupByLibrary.simpleMessage("Server error"),
+        "signup": MessageLookupByLibrary.simpleMessage("Sign up")
       };
 }

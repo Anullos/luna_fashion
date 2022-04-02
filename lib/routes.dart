@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'src/auth/presentation/pages/signup_page.dart';
 import 'src/auth/presentation/pages/login_page.dart';
+import 'src/home/presentation/pages/home_page.dart';
 import 'src/shared/presentation/pages/splash_page.dart';
 
 // zone splash
@@ -36,19 +37,14 @@ class AppRouter {
                 opacity: animation1, child: const SignUpPage());
           },
         );
-      case recoverPasswordRoute:
-        return MaterialPageRoute<void>(
-          builder: (context) => const SplashPage(),
-        );
       // home
       case homeRoute:
         return PageRouteBuilder<void>(
           pageBuilder: (context, animation1, animation2) {
-            return FadeTransition(
-                opacity: animation1, child: const SplashPage());
+            return FadeTransition(opacity: animation1, child: const HomePage());
           },
         );
-
+      // default
       default:
         return MaterialPageRoute<void>(
           builder: (_) => Scaffold(

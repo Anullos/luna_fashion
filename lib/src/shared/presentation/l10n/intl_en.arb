@@ -1,0 +1,13 @@
+{
+  "nonExistentUserWithEmailAndPassword": "User with email and password does not exist",
+  "serverError": "Server error",
+  "login": "Login",
+  "email": "Email",
+  "password": "Password",
+  "forgotPassword": "Forgot password?",
+  "dontHaveAccount": "Don't have an account?",
+  "signup": "Sign up",
+  "fullName": "Full name",
+  "passwordConfirmation": "Password confirmation",
+  "alderadyHaveAccount": "Already have an account?"
+}
