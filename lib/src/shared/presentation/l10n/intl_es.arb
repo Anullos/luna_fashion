@@ -19,5 +19,6 @@
   "invalidFullName": "Nombre completo inválido",
   "emailAlreadyInUser": "El email ya está en uso",
   "weakPassword": "Contraseña débil",
-  "operationNotAllowed": "Operación no permitida"
+  "operationNotAllowed": "Operación no permitida",
+  "unknownError": "Error desconocido"
 }

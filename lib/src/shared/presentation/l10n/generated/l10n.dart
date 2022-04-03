@@ -259,6 +259,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Error desconocido`
+  String get unknownError {
+    return Intl.message(
+      'Error desconocido',
+      name: 'unknownError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

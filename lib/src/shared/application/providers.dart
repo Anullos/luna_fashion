@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../auth/application/onboarding_controller.dart';
 import '../../auth/application/auth_controller.dart';
 import '../../auth/application/login_controller.dart';
 import '../../auth/application/signup_controller.dart';
@@ -38,6 +39,14 @@ final signUpControllerProvider =
   (ref) {
     final authRepository = ref.watch(authRepositoryProvider);
     return SignUpController(authRepository);
+  },
+);
+
+final onBoardingControllerProvider =
+    StateNotifierProvider.autoDispose<OnBoardingController, OnBoardingState>(
+  (ref) {
+    final authRepository = ref.watch(authRepositoryProvider);
+    return OnBoardingController(authRepository);
   },
 );
 

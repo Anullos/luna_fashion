@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../widgets/custom_anim_screen.dart';
+import '../../../../routes.dart';
+import '../../../shared/application/providers.dart';
+import '../../../shared/presentation/l10n/generated/l10n.dart';
+import '../../../shared/presentation/utils/luna_colors.dart';
+import '../../../shared/presentation/utils/toasts.dart';
+import '../../application/onboarding_controller.dart';
+import '../../infrastructure/data/data_pages.dart';
+import '../widgets/custom_anim_onboarding.dart';
+import '../widgets/custom_concentric_pageview.dart';
+import '../widgets/onboarding_item_page.dart';
 
 class OnBoardingPage extends StatefulWidget {
   const OnBoardingPage({Key? key}) : super(key: key);
@@ -19,20 +29,24 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   final _psudoDuration = const Duration(milliseconds: 150);
   bool _isCompleted = false;
 
-  _animateContainerFromBottomToTop() async {
+  _animateContainerStartToButton() async {
     await Future.delayed(_psudoDuration);
-    _height = 60;
-    _radioValue = 60;
+    _height = 0;
+    _radioValue = 200;
+    _iconHeight = 20;
+    _iconWidth = 20;
+    setState(() {});
+    await Future.delayed(_durationIcon);
+  }
+
+  _animateContainerFromButtonToEnd() async {
+    _height = MediaQuery.of(context).size.height;
+    _radioValue = 0;
     _iconHeight = 100;
     _iconWidth = 100;
     setState(() {});
-  }
-
-  _animateContainerFromTopToBottom() async {
-    _height = MediaQuery.of(context).size.height;
-    _radioValue = 0;
-    setState(() {});
     await Future.delayed(_duration);
+    Navigator.of(context).pushReplacementNamed(homeRoute);
   }
 
   @override
@@ -46,7 +60,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       _iconWidth = 100;
       setState(() {});
 
-      _animateContainerFromBottomToTop();
+      _animateContainerStartToButton();
     }
     _isCompleted = true;
   }
@@ -54,22 +68,62 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          CustomAnimScreen(
-            text: '',
-            isCompleted: _height == 240,
-            duration: _duration,
-            height: _height,
-            radioValue: _radioValue,
-            durationIcon: _durationIcon,
-            iconHeight: _iconHeight,
-            iconWidth: _iconWidth,
-            onTap: () {},
-          ),
-        ],
-      ),
+      body: Consumer(builder: (_, ref, __) {
+        ref.listen<OnBoardingState>(
+          onBoardingControllerProvider,
+          (_, next) {
+            next.sendOnboardingFailureOrSuccess
+              ..whenIsFailure(
+                (failure) => showError(
+                  context,
+                  message: failure.map(
+                    unknownError: (_) => S.of(context).unknownError,
+                  ),
+                ),
+              )
+              ..whenIsSuccess(() {
+                _animateContainerFromButtonToEnd();
+              });
+          },
+        );
+        return Stack(
+          fit: StackFit.expand,
+          children: [
+            CustomConcentricPageView(
+              colors: [Colors.white, LunaColors.nightMedium, Colors.white],
+              gradientColors: [
+                LunaColors.gradientWhite,
+                LunaColors.backgroundAuthGradient,
+                LunaColors.gradientWhite,
+              ],
+              curve: Curves.ease,
+              duration: const Duration(milliseconds: 1200),
+              itemCount: listPage.length,
+              onFinish: ref
+                  .read(onBoardingControllerProvider.notifier)
+                  .sendOnboarding,
+              itemBuilder: (int index, double value) {
+                final page = listPage[index];
+                return OnBoardingItemPage(
+                  page: page,
+                  index: index,
+                );
+              },
+            ),
+            CustomAnimOnBoarding(
+              text: '',
+              isCompleted: _height == 240,
+              duration: _duration,
+              height: _height,
+              radioValue: _radioValue,
+              durationIcon: _durationIcon,
+              iconHeight: _iconHeight,
+              iconWidth: _iconWidth,
+              onTap: () {},
+            ),
+          ],
+        );
+      }),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../../shared/domain/failures/firebase_failure.dart';
 import '../../shared/infrastructure/collections.dart';
 import '../../shared/infrastructure/dto/user_dto.dart';
 import '../../shared/domain/models/user_model.dart';
@@ -91,6 +92,21 @@ class AuthRepositoryImplements extends AuthRepositoryInterface {
       return user;
     } else {
       return null;
+    }
+  }
+
+  @override
+  Future<ResultOr<FirebaseFailure>> sendOnBoarding() async {
+    try {
+      await _firebaseFirestore
+          .collection(userCollection)
+          .doc(_firebaseAuth.currentUser!.uid)
+          .update({
+        'isOnBoardingCompleted': true,
+      });
+      return ResultOr.success();
+    } catch (e) {
+      return ResultOr.failure(FirebaseFailure.unknownError());
     }
   }
 }

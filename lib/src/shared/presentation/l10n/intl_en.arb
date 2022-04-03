@@ -19,5 +19,6 @@
   "invalidFullName": "Invalid full name",
   "emailAlreadyInUser": "Email already in use",
   "weakPassword": "Weak password",
-  "operationNotAllowed": "Operation not allowed"
+  "operationNotAllowed": "Operation not allowed",
+  "unknownError": "Unknown error"
 }

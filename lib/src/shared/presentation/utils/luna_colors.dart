@@ -18,7 +18,7 @@ class LunaColors {
   static Color get orange => const Color(0xffF5591F);
   static Color get orangeLight => const Color(0xffF2861E);
   static Color get night => const Color(0xff373B44);
-  static Color get nightMedium => const Color(0xff4364F7);
+  static Color get nightMedium => const Color(0xff3e6ab2);
   static Color get nightLight => const Color(0xff4286f4);
 
   static Color get red => const Color(0xFFC0392B);
@@ -30,6 +30,24 @@ class LunaColors {
           night,
           night,
           nightLight,
+        ],
+      );
+  static LinearGradient get gradientButtonOnBoarding => LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          nightMedium,
+          nightMedium,
+          nightMedium,
+        ],
+      );
+  static LinearGradient get gradientWhite => LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          white,
+          white,
+          white,
         ],
       );
 }

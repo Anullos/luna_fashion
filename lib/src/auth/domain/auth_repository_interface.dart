@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../../shared/domain/failures/firebase_failure.dart';
 import '../../shared/domain/models/user_model.dart';
 import '../../shared/presentation/utils/result_or.dart';
 import 'failures/signup_failure.dart';
@@ -22,5 +23,5 @@ abstract class AuthRepositoryInterface {
 
   Future<UserModel?> getUserById(String userId);
 
-  // Future<ResultOr<OnBoardingFailure>> sendOnBoarding(RequestOnBoarding request);
+  Future<ResultOr<FirebaseFailure>> sendOnBoarding();
 }

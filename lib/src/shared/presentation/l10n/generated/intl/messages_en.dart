@@ -52,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "signup": MessageLookupByLibrary.simpleMessage("Sign up"),
         "tooLong": MessageLookupByLibrary.simpleMessage("Too long"),
         "tooShot": MessageLookupByLibrary.simpleMessage("Too short"),
+        "unknownError": MessageLookupByLibrary.simpleMessage("Unknown error"),
         "weakPassword": MessageLookupByLibrary.simpleMessage("Weak password")
       };
 }

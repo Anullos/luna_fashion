@@ -1,6 +1,6 @@
 name: luna_fashion
 description: Luna Fashion es una app eCommerce de ropa
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
@@ -27,6 +27,8 @@ dependencies:
   logger: ^1.1.0 #logs
   another_flushbar: ^1.10.28 #toasts
 
+  lottie: ^1.2.2 #images with anim
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -38,6 +40,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/lotties/
 
 flutter_native_splash:
   image: assets/images/splash.png
@@ -47,7 +50,7 @@ flutter_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/logo_launch.png"
-    
+
 flutter_intl:
   enabled: true
   main_locale: es
