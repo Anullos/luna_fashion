@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../routes.dart';
+import '../../../shared/presentation/l10n/generated/l10n.dart';
 import '../widgets/custom_anim_screen.dart';
 import '../widgets/signup_form.dart';
 
@@ -68,7 +70,6 @@ class _SignUpPageState extends State<SignUpPage> {
       _isKeyboardVisible = false;
       setState(() {});
     }
-    
   }
 
   @override
@@ -85,9 +86,15 @@ class _SignUpPageState extends State<SignUpPage> {
             SignupForm(
               heightFake: _isKeyboardVisible ? 100 : 240,
               onTapLogin: _navigateBack,
+              onSubmit: (result) {
+                if (result) {
+                  _animateContainerFromTopToBottom();
+                  Navigator.pushReplacementNamed(context, onBoardingRoute);
+                }
+              },
             ),
             CustomAnimScreen(
-              text: 'Register',
+              text: S.of(context).register,
               isCompleted: _height == 240,
               duration: _duration,
               height: _height,

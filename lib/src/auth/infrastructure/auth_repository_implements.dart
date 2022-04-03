@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../../shared/infrastructure/collections.dart';
 import '../../shared/infrastructure/dto/user_dto.dart';
 import '../../shared/domain/models/user_model.dart';
+import '../../shared/domain/types/user_role_type.dart';
 import '../../shared/presentation/utils/result_or.dart';
 import '../domain/auth_repository_interface.dart';
 import '../domain/failures/signup_failure.dart';
@@ -47,7 +48,37 @@ class AuthRepositoryImplements extends AuthRepositoryInterface {
       {required String fullName,
       required String email,
       required String password}) async {
-    throw UnimplementedError();
+    try {
+      UserCredential userCredential =
+          await _firebaseAuth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      await _firebaseFirestore
+          .collection(userCollection)
+          .doc(userCredential.user!.uid)
+          .set({
+        'id': userCredential.user!.uid,
+        'fullName': fullName,
+        'email': email,
+        'profilePictureUrl': '',
+        'role': UserRoleType.user().toString(),
+        'createdAt': DateTime.now().millisecondsSinceEpoch,
+        'isOnBoardingCompleted': false,
+      });
+
+      return ResultOr.success();
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        return ResultOr.failure(SignUpFailure.weakPassword());
+      } else if (e.code == 'email-already-in-use') {
+        return ResultOr.failure(SignUpFailure.emailAlreadyInUser());
+      }
+    } catch (e) {
+      return ResultOr.failure(SignUpFailure.operationNotAllowed());
+    }
+    return ResultOr.success();
   }
 
   @override

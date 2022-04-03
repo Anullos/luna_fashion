@@ -80,6 +80,16 @@ class S {
     );
   }
 
+  /// `Registrarse`
+  String get register {
+    return Intl.message(
+      'Registrarse',
+      name: 'register',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Correo electrónico`
   String get email {
     return Intl.message(
@@ -155,6 +165,96 @@ class S {
     return Intl.message(
       '¿Ya tienes una cuenta?',
       name: 'alderadyHaveAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No puede estar vacío`
+  String get empty {
+    return Intl.message(
+      'No puede estar vacío',
+      name: 'empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email inválido`
+  String get invalidEmail {
+    return Intl.message(
+      'Email inválido',
+      name: 'invalidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Muy largo`
+  String get tooLong {
+    return Intl.message(
+      'Muy largo',
+      name: 'tooLong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Muy corto`
+  String get tooShot {
+    return Intl.message(
+      'Muy corto',
+      name: 'tooShot',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Las contraseñas no coinciden`
+  String get mismatchedPasswords {
+    return Intl.message(
+      'Las contraseñas no coinciden',
+      name: 'mismatchedPasswords',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nombre completo inválido`
+  String get invalidFullName {
+    return Intl.message(
+      'Nombre completo inválido',
+      name: 'invalidFullName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `El email ya está en uso`
+  String get emailAlreadyInUser {
+    return Intl.message(
+      'El email ya está en uso',
+      name: 'emailAlreadyInUser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contraseña débil`
+  String get weakPassword {
+    return Intl.message(
+      'Contraseña débil',
+      name: 'weakPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Operación no permitida`
+  String get operationNotAllowed {
+    return Intl.message(
+      'Operación no permitida',
+      name: 'operationNotAllowed',
       desc: '',
       args: [],
     );

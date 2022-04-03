@@ -34,17 +34,13 @@ class _SplashPageState extends ConsumerState<SplashPage> {
           debugPrint('SplashPage verifing...');
           if (next == AuthStatus.authenticated) {
             final user = ref.read(authControllerProvider).user;
-            // Navigator.pushReplacementNamed(context, homeRoute,
-            //     arguments: user!.id);
             if (user!.isOnBoardingCompleted) {
-              Navigator.pushNamed(context, homeRoute);
+              Navigator.pushReplacementNamed(context, homeRoute);
             } else {
-              Navigator.pushNamed(context, loginRoute);
-              // Navigator.pushReplacement(context,
-              //     MaterialPageRoute(builder: (context) => const WizardPage()));
+              Navigator.pushReplacementNamed(context, onBoardingRoute);
             }
           } else {
-            Navigator.pushNamed(context, loginRoute);
+            Navigator.pushReplacementNamed(context, loginRoute);
           }
         }
       },

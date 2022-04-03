@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../../../../routes.dart';
-import '../../../shared/presentation/l10n/generated/l10n.dart';
 import '../widgets/custom_anim_screen.dart';
-import '../widgets/login_form.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class OnBoardingPage extends StatefulWidget {
+  const OnBoardingPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<OnBoardingPage> createState() => _OnBoardingPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _OnBoardingPageState extends State<OnBoardingPage> {
   late double _height;
   late double _iconHeight;
   late double _iconWidth;
@@ -21,25 +18,10 @@ class _LoginPageState extends State<LoginPage> {
   final _durationIcon = const Duration(milliseconds: 450);
   final _psudoDuration = const Duration(milliseconds: 150);
   bool _isCompleted = false;
-  bool _isKeyboardVisible = false;
-  bool _isOtherPage = false;
-
-  _navigateSignUp() async {
-    FocusScope.of(context).requestFocus(FocusNode());
-    await _animateContainerFromTopToBottom();
-    _isOtherPage = true;
-    Navigator.pushNamed(context, signupRoute).then((value) {
-      if (value == true) {
-        _animateContainerFromBottomToTop();
-        _isCompleted = true;
-        _isOtherPage = false;
-      }
-    });
-  }
 
   _animateContainerFromBottomToTop() async {
     await Future.delayed(_psudoDuration);
-    _height = 240;
+    _height = 60;
     _radioValue = 60;
     _iconHeight = 100;
     _iconWidth = 100;
@@ -60,29 +42,13 @@ class _LoginPageState extends State<LoginPage> {
     if (!_isCompleted) {
       _height = MediaQuery.of(context).size.height;
       _radioValue = 0;
-      _iconHeight = 200;
-      _iconWidth = 200;
+      _iconHeight = 100;
+      _iconWidth = 100;
       setState(() {});
 
       _animateContainerFromBottomToTop();
     }
     _isCompleted = true;
-
-    if (WidgetsBinding.instance!.window.viewInsets.bottom > 0.0 &&
-        !_isKeyboardVisible &&
-        _isCompleted &&
-        !_isOtherPage) {
-      _height = 60;
-      _isKeyboardVisible = true;
-      setState(() {});
-    } else if (WidgetsBinding.instance!.window.viewInsets.bottom == 0.0 &&
-        _isKeyboardVisible &&
-        _isCompleted &&
-        !_isOtherPage) {
-      _height = 240;
-      _isKeyboardVisible = false;
-      setState(() {});
-    }
   }
 
   @override
@@ -91,12 +57,8 @@ class _LoginPageState extends State<LoginPage> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          LoginForm(
-            heightFake: _isKeyboardVisible ? 100 : 240,
-            onTapRegister: _navigateSignUp,
-          ),
           CustomAnimScreen(
-            text: S.of(context).login,
+            text: '',
             isCompleted: _height == 240,
             duration: _duration,
             height: _height,

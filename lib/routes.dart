@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'src/auth/presentation/pages/onboarding_page.dart';
 import 'src/auth/presentation/pages/signup_page.dart';
 import 'src/auth/presentation/pages/login_page.dart';
 import 'src/home/presentation/pages/home_page.dart';
@@ -11,6 +12,7 @@ const String splashRoute = '/';
 const String loginRoute = '/login';
 const String signupRoute = '/signup';
 const String recoverPasswordRoute = '/recover-password';
+const String onBoardingRoute = '/onboarding';
 // zone home
 const String homeRoute = '/home';
 
@@ -35,6 +37,13 @@ class AppRouter {
           pageBuilder: (context, animation1, animation2) {
             return FadeTransition(
                 opacity: animation1, child: const SignUpPage());
+          },
+        );
+      case onBoardingRoute:
+        return PageRouteBuilder<void>(
+          pageBuilder: (context, animation1, animation2) {
+            return FadeTransition(
+                opacity: animation1, child: const OnBoardingPage());
           },
         );
       // home

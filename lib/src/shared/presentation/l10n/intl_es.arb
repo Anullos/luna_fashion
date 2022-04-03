@@ -2,6 +2,7 @@
   "nonExistentUserWithEmailAndPassword": "Email o contraseña incorrectos",
   "serverError": "Error en el servidor",
   "login": "Login",
+  "register": "Registrarse",
   "email": "Correo electrónico",
   "password": "Contraseña",
   "forgotPassword": "¿Olvidaste tu contraseña?",
@@ -9,5 +10,14 @@
   "signup": "Registrar",
   "fullName": "Nombre completo",
   "passwordConfirmation": "Confirmar contraseña",
-  "alderadyHaveAccount": "¿Ya tienes una cuenta?"
+  "alderadyHaveAccount": "¿Ya tienes una cuenta?",
+  "empty": "No puede estar vacío",
+  "invalidEmail": "Email inválido",
+  "tooLong": "Muy largo",
+  "tooShot": "Muy corto",
+  "mismatchedPasswords": "Las contraseñas no coinciden",
+  "invalidFullName": "Nombre completo inválido",
+  "emailAlreadyInUser": "El email ya está en uso",
+  "weakPassword": "Contraseña débil",
+  "operationNotAllowed": "Operación no permitida"
 }

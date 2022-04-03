@@ -2,6 +2,7 @@
   "nonExistentUserWithEmailAndPassword": "User with email and password does not exist",
   "serverError": "Server error",
   "login": "Login",
+  "register": "Register",
   "email": "Email",
   "password": "Password",
   "forgotPassword": "Forgot password?",
@@ -9,5 +10,14 @@
   "signup": "Sign up",
   "fullName": "Full name",
   "passwordConfirmation": "Password confirmation",
-  "alderadyHaveAccount": "Already have an account?"
+  "alderadyHaveAccount": "Already have an account?",
+  "empty": "Empty",
+  "invalidEmail": "Invalid email",
+  "tooLong": "Too long",
+  "tooShot": "Too short",
+  "mismatchedPasswords": "Mismatched passwords",
+  "invalidFullName": "Invalid full name",
+  "emailAlreadyInUser": "Email already in use",
+  "weakPassword": "Weak password",
+  "operationNotAllowed": "Operation not allowed"
 }

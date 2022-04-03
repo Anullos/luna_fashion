@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../auth/application/auth_controller.dart';
 import '../../auth/application/login_controller.dart';
+import '../../auth/application/signup_controller.dart';
 import '../../auth/infrastructure/auth_repository_implements.dart';
 
 // Globals
@@ -32,13 +33,13 @@ final loginControllerProvider =
   },
 );
 
-// final signUpProvider =
-//     StateNotifierProvider.autoDispose<SignUpController, SignUpState>(
-//   (ref) {
-//     final authRepository = ref.watch(authRepositoryProvider);
-//     return SignUpController(authRepository);
-//   },
-// );
+final signUpControllerProvider =
+    StateNotifierProvider.autoDispose<SignUpController, SignUpState>(
+  (ref) {
+    final authRepository = ref.watch(authRepositoryProvider);
+    return SignUpController(authRepository);
+  },
+);
 
 
 

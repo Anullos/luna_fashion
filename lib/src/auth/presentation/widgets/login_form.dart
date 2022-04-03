@@ -8,6 +8,8 @@ import '../../../shared/presentation/utils/toasts.dart';
 import '../../../shared/presentation/utils/luna_colors.dart';
 import '../../../shared/presentation/widgets/custom_button_widget.dart';
 import '../../application/login_controller.dart';
+import '../extensions/email_failure_extension.dart';
+import '../extensions/password_failure_extension.dart';
 import 'custom_text_field.dart';
 
 class LoginForm extends StatelessWidget {
@@ -74,37 +76,37 @@ class LoginForm extends StatelessWidget {
                       children: [
                         const SizedBox(height: 8),
                         CustomTextFormField(
-                          hintText: 'Email',
+                          hintText: S.of(context).email,
                           iconData: Icons.email,
                           keyboardType: TextInputType.emailAddress,
                           onChanged: loginController.emailChanged,
                           showError: loginState.showErrors,
                           errorText: loginState.email.map(
-                              isLeft: (f) => 'Email inválido',
+                              isLeft: (f) => f.toTranslation(context),
                               isRight: (_) => null),
                         ),
                         CustomTextFormField(
-                          hintText: 'Password',
+                          hintText: S.of(context).password,
                           iconData: Icons.vpn_key,
                           obscureText: true,
                           onChanged: loginController.passwordChanged,
                           showError: loginState.showErrors,
                           errorText: loginState.password.map(
-                              isLeft: (f) => 'Password inválido',
+                              isLeft: (f) => f.toTranslation(context),
                               isRight: (_) => null),
                         ),
                         Container(
                           margin: const EdgeInsets.only(top: 10),
                           alignment: Alignment.centerRight,
-                          child: const Text(
-                            "Forgot Password?",
+                          child: Text(
+                            S.of(context).forgotPassword,
                           ),
                         ),
                         Expanded(
                           child: Center(
                             child: CustomButtonWidget(
                               onTap: loginController.signIn,
-                              text: "LOGIN",
+                              text: S.of(context).login.toUpperCase(),
                             ),
                           ),
                         ),
@@ -114,11 +116,12 @@ class LoginForm extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: RichText(
                               text: TextSpan(children: [
-                                const TextSpan(
-                                    text: "Don't have an account ? ",
-                                    style: TextStyle(color: Colors.black)),
                                 TextSpan(
-                                    text: "Registor",
+                                    text: S.of(context).dontHaveAccount,
+                                    style:
+                                        const TextStyle(color: Colors.black)),
+                                TextSpan(
+                                    text: S.of(context).register,
                                     style: TextStyle(color: LunaColors.orange)),
                               ]),
                             ),

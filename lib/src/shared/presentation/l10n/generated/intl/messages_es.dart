@@ -27,18 +27,32 @@ class MessageLookup extends MessageLookupByLibrary {
         "dontHaveAccount":
             MessageLookupByLibrary.simpleMessage("¿No tienes una cuenta?"),
         "email": MessageLookupByLibrary.simpleMessage("Correo electrónico"),
+        "emailAlreadyInUser":
+            MessageLookupByLibrary.simpleMessage("El email ya está en uso"),
+        "empty": MessageLookupByLibrary.simpleMessage("No puede estar vacío"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("¿Olvidaste tu contraseña?"),
         "fullName": MessageLookupByLibrary.simpleMessage("Nombre completo"),
+        "invalidEmail": MessageLookupByLibrary.simpleMessage("Email inválido"),
+        "invalidFullName":
+            MessageLookupByLibrary.simpleMessage("Nombre completo inválido"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "mismatchedPasswords": MessageLookupByLibrary.simpleMessage(
+            "Las contraseñas no coinciden"),
         "nonExistentUserWithEmailAndPassword":
             MessageLookupByLibrary.simpleMessage(
                 "Email o contraseña incorrectos"),
+        "operationNotAllowed":
+            MessageLookupByLibrary.simpleMessage("Operación no permitida"),
         "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
         "passwordConfirmation":
             MessageLookupByLibrary.simpleMessage("Confirmar contraseña"),
+        "register": MessageLookupByLibrary.simpleMessage("Registrarse"),
         "serverError":
             MessageLookupByLibrary.simpleMessage("Error en el servidor"),
-        "signup": MessageLookupByLibrary.simpleMessage("Registrar")
+        "signup": MessageLookupByLibrary.simpleMessage("Registrar"),
+        "tooLong": MessageLookupByLibrary.simpleMessage("Muy largo"),
+        "tooShot": MessageLookupByLibrary.simpleMessage("Muy corto"),
+        "weakPassword": MessageLookupByLibrary.simpleMessage("Contraseña débil")
       };
 }

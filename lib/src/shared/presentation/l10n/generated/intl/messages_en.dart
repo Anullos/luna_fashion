@@ -27,17 +27,31 @@ class MessageLookup extends MessageLookupByLibrary {
         "dontHaveAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "emailAlreadyInUser":
+            MessageLookupByLibrary.simpleMessage("Email already in use"),
+        "empty": MessageLookupByLibrary.simpleMessage("Empty"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot password?"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full name"),
+        "invalidEmail": MessageLookupByLibrary.simpleMessage("Invalid email"),
+        "invalidFullName":
+            MessageLookupByLibrary.simpleMessage("Invalid full name"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "mismatchedPasswords":
+            MessageLookupByLibrary.simpleMessage("Mismatched passwords"),
         "nonExistentUserWithEmailAndPassword":
             MessageLookupByLibrary.simpleMessage(
                 "User with email and password does not exist"),
+        "operationNotAllowed":
+            MessageLookupByLibrary.simpleMessage("Operation not allowed"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordConfirmation":
             MessageLookupByLibrary.simpleMessage("Password confirmation"),
+        "register": MessageLookupByLibrary.simpleMessage("Register"),
         "serverError": MessageLookupByLibrary.simpleMessage("Server error"),
-        "signup": MessageLookupByLibrary.simpleMessage("Sign up")
+        "signup": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "tooLong": MessageLookupByLibrary.simpleMessage("Too long"),
+        "tooShot": MessageLookupByLibrary.simpleMessage("Too short"),
+        "weakPassword": MessageLookupByLibrary.simpleMessage("Weak password")
       };
 }
