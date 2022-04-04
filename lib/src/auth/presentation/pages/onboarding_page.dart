@@ -39,7 +39,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     await Future.delayed(_durationIcon);
   }
 
-  _animateContainerFromButtonToEnd() async {
+  _animateContainerFromButtonToEnd(WidgetRef ref) async {
     _height = MediaQuery.of(context).size.height;
     _radioValue = 0;
     _iconHeight = 100;
@@ -82,7 +82,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 ),
               )
               ..whenIsSuccess(() {
-                _animateContainerFromButtonToEnd();
+                _animateContainerFromButtonToEnd(ref);
               });
           },
         );

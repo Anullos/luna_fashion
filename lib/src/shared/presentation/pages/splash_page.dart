@@ -34,8 +34,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
           debugPrint('SplashPage verifing...');
           if (next == AuthStatus.authenticated) {
             final user = ref.read(authControllerProvider).user;
-            ref.watch(userController.notifier).loadUser();
-            // ref.read(authControllerProvider.notifier).signOut();
+            //   ref.read(authControllerProvider.notifier).signOut();
             if (user!.isOnBoardingCompleted) {
               Navigator.pushReplacementNamed(context, homeRoute);
             } else {
