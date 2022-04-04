@@ -86,10 +86,12 @@ class _SignUpPageState extends State<SignUpPage> {
             SignupForm(
               heightFake: _isKeyboardVisible ? 100 : 240,
               onTapLogin: _navigateBack,
-              onSubmit: (result) {
+              onSubmit: (result) async {
                 if (result) {
-                  _animateContainerFromTopToBottom();
-                  Navigator.pushReplacementNamed(context, onBoardingRoute);
+                  // _animateContainerFromTopToBottom();
+                  //   await Future.delayed(const Duration(milliseconds: 600));
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, splashRoute, (route) => false);
                 }
               },
             ),

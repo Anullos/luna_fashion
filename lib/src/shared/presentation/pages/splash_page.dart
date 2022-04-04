@@ -34,11 +34,12 @@ class _SplashPageState extends ConsumerState<SplashPage> {
           debugPrint('SplashPage verifing...');
           if (next == AuthStatus.authenticated) {
             final user = ref.read(authControllerProvider).user;
+            ref.watch(userController.notifier).loadUser();
             // ref.read(authControllerProvider.notifier).signOut();
             if (user!.isOnBoardingCompleted) {
               Navigator.pushReplacementNamed(context, homeRoute);
             } else {
-              Navigator.pushNamed(context, onBoardingRoute);
+              Navigator.pushReplacementNamed(context, onBoardingRoute);
             }
           } else {
             Navigator.pushReplacementNamed(context, loginRoute);
@@ -52,19 +53,14 @@ class _SplashPageState extends ConsumerState<SplashPage> {
         decoration: BoxDecoration(
           gradient: LunaColors.backgroundAuthGradient,
         ),
-        child: InkWell(
-          onTap: () {
-            Navigator.pushNamed(context, loginRoute);
-          },
-          child: Center(
-            child: Container(
-              height: 200,
-              width: 200,
-              foregroundDecoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/logo.png'),
-                  fit: BoxFit.cover,
-                ),
+        child: Center(
+          child: Container(
+            height: 200,
+            width: 200,
+            foregroundDecoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/logo.png'),
+                fit: BoxFit.cover,
               ),
             ),
           ),

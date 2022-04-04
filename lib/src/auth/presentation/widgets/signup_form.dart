@@ -68,7 +68,7 @@ class SignupForm extends StatelessWidget {
                           )
                           ..whenIsSuccess(() {
                             onSubmit(true);
-                            showSuccess(context, message: 'Creado con exito');
+                            // showSuccess(context, message: 'Creado con exito');
                           });
                       },
                     );
@@ -79,6 +79,7 @@ class SignupForm extends StatelessWidget {
                         CustomTextFormField(
                           hintText: S.of(context).fullName,
                           iconData: Icons.person,
+                          keyboardType: TextInputType.name,
                           onChanged: signUpController.fullnameChanged,
                           showError: signUpState.showErrors,
                           errorText: signUpState.fullname.map(
@@ -119,6 +120,7 @@ class SignupForm extends StatelessWidget {
                           child: Center(
                             child: CustomButtonWidget(
                               onTap: signUpController.signUp,
+                              isLoading: signUpState.signUpResult.isLoading,
                               text: S.of(context).register.toUpperCase(),
                             ),
                           ),

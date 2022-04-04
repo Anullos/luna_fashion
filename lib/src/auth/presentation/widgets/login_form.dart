@@ -106,6 +106,8 @@ class LoginForm extends StatelessWidget {
                           child: Center(
                             child: CustomButtonWidget(
                               onTap: loginController.signIn,
+                              isLoading:
+                                  loginState.signInFailureOrSuccess.isLoading,
                               text: S.of(context).login.toUpperCase(),
                             ),
                           ),

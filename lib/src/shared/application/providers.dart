@@ -2,7 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../user/infrastructure/user_repository_implements.dart';
 import '../../auth/application/onboarding_controller.dart';
+import '../../user/application/user_controller.dart';
 import '../../auth/application/auth_controller.dart';
 import '../../auth/application/login_controller.dart';
 import '../../auth/application/signup_controller.dart';
@@ -50,23 +52,21 @@ final onBoardingControllerProvider =
   },
 );
 
-
-
 // User
-// final userRepositoryProvider = Provider(
-//   (ref) => UserRepositoryImplements(
-//     ref.watch(firebaseStore),
-//     ref.watch(firebaseAuth),
-//   ),
-// );
+final userRepositoryProvider = Provider(
+  (ref) => UserRepositoryImplements(
+    ref.watch(firebaseStore),
+    ref.watch(firebaseAuth),
+  ),
+);
 
-// final userController = StateNotifierProvider<UserController, UserState>(
-//   (ref) {
-//     final repository = ref.watch(userRepositoryProvider);
-//     final user = ref.watch(authControllerProvider).user;
-//     return UserController(repository, user);
-//   },
-// );
+final userController = StateNotifierProvider<UserController, UserState>(
+  (ref) {
+    final repository = ref.watch(userRepositoryProvider);
+    final user = ref.watch(authControllerProvider).user;
+    return UserController(repository, user);
+  },
+);
 
 // Home
 // final homeRepositoryProvider = Provider(
