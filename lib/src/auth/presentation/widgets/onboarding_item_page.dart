@@ -44,8 +44,10 @@ class _OnBoardingItemPageState extends State<OnBoardingItemPage> {
       child: Column(
         children: <Widget>[
           _buildPicture(context, size.width * 0.7),
-          const SizedBox(height: 30),
+          const SizedBox(height: 24),
           _buildText(context),
+          const SizedBox(height: 16),
+          _buildDescription(context),
         ],
       ),
     );
@@ -54,10 +56,20 @@ class _OnBoardingItemPageState extends State<OnBoardingItemPage> {
   Widget _buildText(BuildContext context) {
     return Text(
       widget.page.title,
-      style: Theme.of(context)
-          .textTheme
-          .headline2!
-          .copyWith(color: widget.index == 1 ? Colors.white : Colors.black),
+      style: Theme.of(context).textTheme.headline3!.copyWith(
+            color: widget.index == 1 ? Colors.white : Colors.black,
+          ),
+      textAlign: TextAlign.center,
+    );
+  }
+
+  Widget _buildDescription(BuildContext context) {
+    return Text(
+      widget.page.description,
+      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+            color: widget.index == 1 ? Colors.white : Colors.black,
+            fontSize: 18,
+          ),
       textAlign: TextAlign.center,
     );
   }
