@@ -10,30 +10,23 @@ part 'user_state.dart';
 class UserController extends StateNotifier<UserState> {
   UserController(
     this._repository,
-    this._user,
   ) : super(UserState.init());
   final UserRepositoryInterface _repository;
-  final UserModel? _user;
 
-  StreamSubscription? _profileSubcription;
+  StreamSubscription? _userSubcription;
 
   void changeUser(UserModel user) {
     state = state.copyWith(user: user);
   }
 
-  void changeUserId() {
-    state = state.copyWith(userId: _user?.id);
-  }
-
   void loadUser() async {
-    _profileSubcription?.cancel();
-
-    _profileSubcription = _repository.getUser().listen(changeUser);
+    _userSubcription?.cancel();
+    _userSubcription = _repository.getUser().listen(changeUser);
   }
 
   @override
   void dispose() {
-    _profileSubcription?.cancel();
+    _userSubcription?.cancel();
     super.dispose();
   }
 }

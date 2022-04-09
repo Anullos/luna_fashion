@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'src/auth/presentation/pages/onboarding_page.dart';
 import 'src/auth/presentation/pages/signup_page.dart';
 import 'src/auth/presentation/pages/login_page.dart';
-import 'src/home/presentation/pages/home_page.dart';
+import 'src/shared/presentation/pages/home_page.dart';
 import 'src/shared/presentation/pages/splash_page.dart';
 
 // zone splash

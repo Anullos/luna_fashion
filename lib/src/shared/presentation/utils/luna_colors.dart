@@ -23,6 +23,9 @@ class LunaColors {
 
   static Color get red => const Color(0xFFC0392B);
 
+
+  
+
   static LinearGradient get backgroundAuthGradient => LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,

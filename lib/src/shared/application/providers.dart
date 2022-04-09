@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'home_controller.dart';
 import '../../user/infrastructure/user_repository_implements.dart';
 import '../../auth/application/onboarding_controller.dart';
 import '../../user/application/user_controller.dart';
@@ -26,6 +27,7 @@ final authControllerProvider =
     StateNotifierProvider<AuthController, AuthState>((ref) {
   return AuthController(
     ref.watch(authRepositoryProvider),
+    ref.read(userController.notifier),
   );
 });
 
@@ -63,25 +65,14 @@ final userRepositoryProvider = Provider(
 final userController = StateNotifierProvider<UserController, UserState>(
   (ref) {
     final repository = ref.watch(userRepositoryProvider);
-    final user = ref.watch(authControllerProvider).user;
-    return UserController(repository, user);
+    return UserController(repository);
   },
 );
 
 // Home
-// final homeRepositoryProvider = Provider(
-//   (ref) => HomeRepositoryImplements(
-//     ref.watch(firebaseStore),
-//     ref.watch(dioInstanceUser),
-//   ),
-// );
-
-// final homeController =
-//     StateNotifierProvider.autoDispose<HomeController, HomeState>(
-//   (ref) {
-//     final repository = ref.watch(homeRepositoryProvider);
-//     return HomeController(repository);
-//   },
-// );
-
-
+final homeController =
+    StateNotifierProvider.autoDispose<HomeController, HomeState>(
+  (ref) {
+    return HomeController();
+  },
+);
