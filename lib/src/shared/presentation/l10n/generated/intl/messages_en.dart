@@ -22,11 +22,16 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "add": MessageLookupByLibrary.simpleMessage("Add"),
         "addProduct": MessageLookupByLibrary.simpleMessage("Add product"),
         "alderadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "category": MessageLookupByLibrary.simpleMessage("Category"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change password"),
+        "chooseFromGallery":
+            MessageLookupByLibrary.simpleMessage("Choose from gallery"),
+        "description": MessageLookupByLibrary.simpleMessage("Description"),
         "didYouKnow": MessageLookupByLibrary.simpleMessage("Did you know?"),
         "dontHaveAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
@@ -46,14 +51,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "mismatchedPasswords":
             MessageLookupByLibrary.simpleMessage("Mismatched passwords"),
         "myProfile": MessageLookupByLibrary.simpleMessage("My profile"),
+        "name": MessageLookupByLibrary.simpleMessage("Name"),
+        "nameFieldIsInvalid":
+            MessageLookupByLibrary.simpleMessage("Name field is invalid"),
         "nonExistentUserWithEmailAndPassword":
             MessageLookupByLibrary.simpleMessage(
                 "User with email and password does not exist"),
+        "oldPrice": MessageLookupByLibrary.simpleMessage("Old price"),
         "operationNotAllowed":
             MessageLookupByLibrary.simpleMessage("Operation not allowed"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordConfirmation":
             MessageLookupByLibrary.simpleMessage("Password confirmation"),
+        "price": MessageLookupByLibrary.simpleMessage("Price"),
         "profileInfoCard": MessageLookupByLibrary.simpleMessage(
             "This application is a demo for the Cesur DAM course. This application has no commercial purpose and is free to use. It has been made by Daniel Aranda Maestro"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
@@ -61,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "signOut": MessageLookupByLibrary.simpleMessage("Sign out"),
         "signup": MessageLookupByLibrary.simpleMessage("Sign up"),
         "support": MessageLookupByLibrary.simpleMessage("Support"),
+        "takeAPhoto": MessageLookupByLibrary.simpleMessage("Take a photo"),
         "termAndConditions":
             MessageLookupByLibrary.simpleMessage("Terms and conditions"),
         "tooLong": MessageLookupByLibrary.simpleMessage("Too long"),

@@ -29,5 +29,14 @@
   "didYouKnow": "Did you know?",
   "profileInfoCard": "This application is a demo for the Cesur DAM course. This application has no commercial purpose and is free to use. It has been made by Daniel Aranda Maestro",
   "iWantToKnowMore": "I want to know more!",
-  "addProduct": "Add product"
+  "addProduct": "Add product",
+  "takeAPhoto": "Take a photo",
+  "chooseFromGallery": "Choose from gallery",
+  "name": "Name",
+  "description": "Description",
+  "category": "Category",
+  "price": "Price",
+  "oldPrice": "Old price",
+  "add": "Add",
+  "nameFieldIsInvalid": "Name field is invalid"
 }

@@ -359,6 +359,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Tomar una foto`
+  String get takeAPhoto {
+    return Intl.message(
+      'Tomar una foto',
+      name: 'takeAPhoto',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Elegir de la galería`
+  String get chooseFromGallery {
+    return Intl.message(
+      'Elegir de la galería',
+      name: 'chooseFromGallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nombre`
+  String get name {
+    return Intl.message(
+      'Nombre',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Descripción`
+  String get description {
+    return Intl.message(
+      'Descripción',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Categoría`
+  String get category {
+    return Intl.message(
+      'Categoría',
+      name: 'category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Precio`
+  String get price {
+    return Intl.message(
+      'Precio',
+      name: 'price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Precio anterior`
+  String get oldPrice {
+    return Intl.message(
+      'Precio anterior',
+      name: 'oldPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Añadir`
+  String get add {
+    return Intl.message(
+      'Añadir',
+      name: 'add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `El nombre no es válido`
+  String get nameFieldIsInvalid {
+    return Intl.message(
+      'El nombre no es válido',
+      name: 'nameFieldIsInvalid',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../admin/application/add_product_controller.dart';
+import '../../admin/infrastructure/admin_repository_implements.dart';
 import 'home_controller.dart';
 import '../../user/infrastructure/user_repository_implements.dart';
 import '../../auth/application/onboarding_controller.dart';
@@ -15,6 +18,8 @@ import '../../auth/infrastructure/auth_repository_implements.dart';
 final firebaseAuth = Provider((_) => FirebaseAuth.instance);
 
 final firebaseStore = Provider((_) => FirebaseFirestore.instance);
+
+final firebaseStorage = Provider((_) => FirebaseStorage.instance);
 
 // Authtentication
 final authRepositoryProvider = Provider(
@@ -74,5 +79,21 @@ final homeController =
     StateNotifierProvider.autoDispose<HomeController, HomeState>(
   (ref) {
     return HomeController();
+  },
+);
+
+// Admin
+final adminRepositoryProvider = Provider(
+  (ref) => AdminRepositoryImplements(
+    ref.watch(firebaseStore),
+    ref.watch(firebaseStorage),
+  ),
+);
+
+final addProductController =
+    StateNotifierProvider.autoDispose<AddProductController, AddProductState>(
+  (ref) {
+    final repository = ref.watch(adminRepositoryProvider);
+    return AddProductController(repository);
   },
 );

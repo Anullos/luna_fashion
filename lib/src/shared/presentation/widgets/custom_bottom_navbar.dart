@@ -31,13 +31,17 @@ class CustomBottomNavbar extends StatelessWidget {
               heightFactor: 0.6,
               child: FloatingActionButton(
                 backgroundColor: LunaColors.orangeLight,
-                child: Icon(user!.role is UserRoleTypeAdmin
-                    ? Icons.add
+                child: Icon(user != null
+                    ? user.role is UserRoleTypeAdmin
+                        ? Icons.add
+                        : Icons.shopping_basket
                     : Icons.shopping_basket),
                 elevation: 0.1,
-                onPressed: () => user.role is UserRoleTypeAdmin
-                    ? Navigator.pushNamed(context, addProductRoute)
-                    : Navigator.pushNamed(context, seeOrdersRoute),
+                onPressed: () => user != null
+                    ? user.role is UserRoleTypeAdmin
+                        ? Navigator.pushNamed(context, addProductRoute)
+                        : Navigator.pushNamed(context, seeOrdersRoute)
+                    : null,
               ),
             );
           }),

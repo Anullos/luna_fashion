@@ -29,5 +29,14 @@
   "didYouKnow": "¿Sabías que?",
   "profileInfoCard": "Esta aplicación es una demo para el proyecto final de DAM de Cesur. Esta aplicación no tiene ningún fin comercial y es de uso libre. A sido realizada por Daniel Aranda Maestro",
   "iWantToKnowMore": "¡Quiero saber máS!",
-  "addProduct": "Añadir producto"
+  "addProduct": "Añadir producto",
+  "takeAPhoto": "Tomar una foto",
+  "chooseFromGallery": "Elegir de la galería",
+  "name": "Nombre",
+  "description": "Descripción",
+  "category": "Categoría",
+  "price": "Precio",
+  "oldPrice": "Precio anterior",
+  "add": "Añadir",
+  "nameFieldIsInvalid": "El nombre no es válido"
 }
