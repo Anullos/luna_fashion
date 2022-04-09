@@ -22,8 +22,12 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "addProduct": MessageLookupByLibrary.simpleMessage("Add product"),
         "alderadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "changePassword":
+            MessageLookupByLibrary.simpleMessage("Change password"),
+        "didYouKnow": MessageLookupByLibrary.simpleMessage("Did you know?"),
         "dontHaveAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
@@ -33,12 +37,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot password?"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full name"),
+        "iWantToKnowMore":
+            MessageLookupByLibrary.simpleMessage("I want to know more!"),
         "invalidEmail": MessageLookupByLibrary.simpleMessage("Invalid email"),
         "invalidFullName":
             MessageLookupByLibrary.simpleMessage("Invalid full name"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "mismatchedPasswords":
             MessageLookupByLibrary.simpleMessage("Mismatched passwords"),
+        "myProfile": MessageLookupByLibrary.simpleMessage("My profile"),
         "nonExistentUserWithEmailAndPassword":
             MessageLookupByLibrary.simpleMessage(
                 "User with email and password does not exist"),
@@ -47,9 +54,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordConfirmation":
             MessageLookupByLibrary.simpleMessage("Password confirmation"),
+        "profileInfoCard": MessageLookupByLibrary.simpleMessage(
+            "This application is a demo for the Cesur DAM course. This application has no commercial purpose and is free to use. It has been made by Daniel Aranda Maestro"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "serverError": MessageLookupByLibrary.simpleMessage("Server error"),
+        "signOut": MessageLookupByLibrary.simpleMessage("Sign out"),
         "signup": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "support": MessageLookupByLibrary.simpleMessage("Support"),
+        "termAndConditions":
+            MessageLookupByLibrary.simpleMessage("Terms and conditions"),
         "tooLong": MessageLookupByLibrary.simpleMessage("Too long"),
         "tooShot": MessageLookupByLibrary.simpleMessage("Too short"),
         "unknownError": MessageLookupByLibrary.simpleMessage("Unknown error"),

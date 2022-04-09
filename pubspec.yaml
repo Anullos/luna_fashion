@@ -28,6 +28,9 @@ dependencies:
   another_flushbar: ^1.10.28 #toasts
 
   lottie: ^1.2.2 #images with anim
+  flutter_svg: ^1.0.3 #images svg
+  image_picker: ^0.8.5 #pick images
+  url_launcher: ^6.0.20 #redirect webs
 
 dev_dependencies:
   flutter_test:
@@ -39,6 +42,7 @@ flutter:
 
   assets:
     - assets/
+    - assets/icons/
     - assets/images/
     - assets/lotties/
 

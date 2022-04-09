@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../routes.dart';
 import '../../application/providers.dart';
+import '../../domain/types/user_role_type.dart';
 import '../utils/luna_colors.dart';
 import 'custom_bottom_navbar_painter.dart';
 
@@ -25,17 +26,18 @@ class CustomBottomNavbar extends StatelessWidget {
                 backgroundColor: LunaColors.nightMedium),
           ),
           Consumer(builder: (_, ref, __) {
+            final user = ref.watch(userController).user;
             return Center(
               heightFactor: 0.6,
               child: FloatingActionButton(
                 backgroundColor: LunaColors.orangeLight,
-                child: const Icon(Icons.shopping_basket),
+                child: Icon(user!.role is UserRoleTypeAdmin
+                    ? Icons.add
+                    : Icons.shopping_basket),
                 elevation: 0.1,
-                onPressed: () {
-                  ref.read(authControllerProvider.notifier).signOut();
-                  Navigator.pushNamedAndRemoveUntil(
-                      context, loginRoute, (route) => false);
-                },
+                onPressed: () => user.role is UserRoleTypeAdmin
+                    ? Navigator.pushNamed(context, addProductRoute)
+                    : Navigator.pushNamed(context, seeOrdersRoute),
               ),
             );
           }),

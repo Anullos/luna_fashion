@@ -20,5 +20,14 @@
   "emailAlreadyInUser": "El email ya está en uso",
   "weakPassword": "Contraseña débil",
   "operationNotAllowed": "Operación no permitida",
-  "unknownError": "Error desconocido"
+  "unknownError": "Error desconocido",
+  "myProfile": "Mi perfil",
+  "changePassword": "Cambiar contraseña",
+  "support": "Soporte",
+  "termAndConditions": "Términos y condiciones",
+  "signOut": "Cerrar sesión",
+  "didYouKnow": "¿Sabías que?",
+  "profileInfoCard": "Esta aplicación es una demo para el proyecto final de DAM de Cesur. Esta aplicación no tiene ningún fin comercial y es de uso libre. A sido realizada por Daniel Aranda Maestro",
+  "iWantToKnowMore": "¡Quiero saber máS!",
+  "addProduct": "Añadir producto"
 }

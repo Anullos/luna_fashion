@@ -20,5 +20,14 @@
   "emailAlreadyInUser": "Email already in use",
   "weakPassword": "Weak password",
   "operationNotAllowed": "Operation not allowed",
-  "unknownError": "Unknown error"
+  "unknownError": "Unknown error",
+  "myProfile": "My profile",
+  "changePassword": "Change password",
+  "support": "Support",
+  "termAndConditions": "Terms and conditions",
+  "signOut": "Sign out",
+  "didYouKnow": "Did you know?",
+  "profileInfoCard": "This application is a demo for the Cesur DAM course. This application has no commercial purpose and is free to use. It has been made by Daniel Aranda Maestro",
+  "iWantToKnowMore": "I want to know more!",
+  "addProduct": "Add product"
 }

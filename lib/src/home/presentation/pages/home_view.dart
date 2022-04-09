@@ -16,7 +16,7 @@ class HomeView extends StatelessWidget {
         Consumer(builder: (_, ref, __) {
           final user = ref.watch(userController).user;
           return Text(
-            user?.fullName ?? 'Luna',
+            user!.fullName,
             style: Theme.of(context).textTheme.headline5,
           );
         }),

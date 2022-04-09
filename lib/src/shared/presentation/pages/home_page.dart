@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../admin/presentation/pages/orders_view.dart';
+import '../../../admin/presentation/pages/products_view.dart';
 import '../../../cart/presentation/pages/cart_view.dart';
 import '../../../example/presentation/pages/example_view.dart';
 import '../../../home/presentation/pages/home_view.dart';
 import '../../application/providers.dart';
 import '../../../user/presentation/pages/profile_view.dart';
+import '../../domain/types/user_role_type.dart';
+import '../widgets/page_view_empty.dart';
 import '../widgets/custom_bottom_navbar.dart';
 import '../widgets/custom_anim_home.dart';
 
@@ -28,7 +32,6 @@ class _HomePageState extends ConsumerState<HomePage> {
 
   @override
   void initState() {
-    // ref.read(userController.notifier).loadUser();
     super.initState();
   }
 
@@ -60,6 +63,7 @@ class _HomePageState extends ConsumerState<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final user = ref.watch(userController).user;
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -67,12 +71,13 @@ class _HomePageState extends ConsumerState<HomePage> {
           PageView(
             controller: ref.watch(homeController).pageController,
             onPageChanged: ref.read(homeController.notifier).pageChanged,
-            children: const [
-              HomeView(),
-              ExampleView(),
-              CartView(),
-              ProfileView(),
-            ],
+            children: user == null
+                ? noneHome
+                : user.role is UserRoleTypeAdmin
+                    ? adminHome
+                    : user.role is UserRoleTypeUser
+                        ? userHome
+                        : noneHome,
           ),
           Container(
             alignment: Alignment.bottomCenter,
@@ -94,3 +99,24 @@ class _HomePageState extends ConsumerState<HomePage> {
     );
   }
 }
+
+final noneHome = [
+  const PageViewEmpty(),
+  const PageViewEmpty(),
+  const PageViewEmpty(),
+  const PageViewEmpty(),
+];
+
+final userHome = [
+  const HomeView(),
+  const ExampleView(),
+  const CartView(),
+  const ProfileView(),
+];
+
+final adminHome = [
+  const HomeView(),
+  const OrdersView(),
+  const ProductsView(),
+  const ProfileView(),
+];

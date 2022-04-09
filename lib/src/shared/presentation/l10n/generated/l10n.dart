@@ -269,6 +269,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Mi perfil`
+  String get myProfile {
+    return Intl.message(
+      'Mi perfil',
+      name: 'myProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cambiar contraseña`
+  String get changePassword {
+    return Intl.message(
+      'Cambiar contraseña',
+      name: 'changePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Soporte`
+  String get support {
+    return Intl.message(
+      'Soporte',
+      name: 'support',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Términos y condiciones`
+  String get termAndConditions {
+    return Intl.message(
+      'Términos y condiciones',
+      name: 'termAndConditions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cerrar sesión`
+  String get signOut {
+    return Intl.message(
+      'Cerrar sesión',
+      name: 'signOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `¿Sabías que?`
+  String get didYouKnow {
+    return Intl.message(
+      '¿Sabías que?',
+      name: 'didYouKnow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Esta aplicación es una demo para el proyecto final de DAM de Cesur. Esta aplicación no tiene ningún fin comercial y es de uso libre. A sido realizada por Daniel Aranda Maestro`
+  String get profileInfoCard {
+    return Intl.message(
+      'Esta aplicación es una demo para el proyecto final de DAM de Cesur. Esta aplicación no tiene ningún fin comercial y es de uso libre. A sido realizada por Daniel Aranda Maestro',
+      name: 'profileInfoCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `¡Quiero saber máS!`
+  String get iWantToKnowMore {
+    return Intl.message(
+      '¡Quiero saber máS!',
+      name: 'iWantToKnowMore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Añadir producto`
+  String get addProduct {
+    return Intl.message(
+      'Añadir producto',
+      name: 'addProduct',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

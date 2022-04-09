@@ -10,12 +10,12 @@ import '../domain/auth_repository_interface.dart';
 part 'auth_state.dart';
 
 class AuthController extends StateNotifier<AuthState> {
-  AuthController(this._repository, this._userState)
+  AuthController(this._repository, this._userController)
       : super(const AuthState.none()) {
     _repository.authStates.listen(initUser);
   }
   final AuthRepositoryInterface _repository;
-  final UserController _userState;
+  final UserController _userController;
 
   Future<void> signOut() async {
     await _repository.signOut();
@@ -26,7 +26,7 @@ class AuthController extends StateNotifier<AuthState> {
       final userModel = await _repository.getUserById(user.uid);
 
       if (userModel != null) {
-        _userState.loadUser();
+        _userController.loadUser();
         state = AuthState.authenticated(userModel);
       } else {
         state = const AuthState.unauthenticated();
