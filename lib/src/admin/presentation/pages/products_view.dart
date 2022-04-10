@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/product_list_widget.dart';
+
 class ProductsView extends StatelessWidget {
   const ProductsView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Products view'),
+    return Column(
+      children: const [
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 16.0),
+          child: Text(
+            'ProductsView',
+            style: TextStyle(
+              fontSize: 24.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        ProductListWidget(),
+      ],
     );
   }
 }

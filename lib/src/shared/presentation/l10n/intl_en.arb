@@ -38,5 +38,7 @@
   "price": "Price",
   "oldPrice": "Old price",
   "add": "Add",
-  "nameFieldIsInvalid": "Name field is invalid"
+  "nameFieldIsInvalid": "Name field is invalid",
+  "productAdded": "Product added",
+  "imageIsRequired": "Image is required"
 }

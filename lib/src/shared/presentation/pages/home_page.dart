@@ -65,36 +65,38 @@ class _HomePageState extends ConsumerState<HomePage> {
   Widget build(BuildContext context) {
     final user = ref.watch(userController).user;
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          PageView(
-            controller: ref.watch(homeController).pageController,
-            onPageChanged: ref.read(homeController.notifier).pageChanged,
-            children: user == null
-                ? noneHome
-                : user.role is UserRoleTypeAdmin
-                    ? adminHome
-                    : user.role is UserRoleTypeUser
-                        ? userHome
-                        : noneHome,
-          ),
-          Container(
-            alignment: Alignment.bottomCenter,
-            child: const CustomBottomNavbar(),
-          ),
-          CustomAnimHome(
-            text: '',
-            isCompleted: _height == 240,
-            duration: _duration,
-            height: _height,
-            radioValue: _radioValue,
-            durationIcon: _durationIcon,
-            iconHeight: _iconHeight,
-            iconWidth: _iconWidth,
-            onTap: () {},
-          ),
-        ],
+      body: SafeArea(
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            PageView(
+              controller: ref.watch(homeController).pageController,
+              onPageChanged: ref.read(homeController.notifier).pageChanged,
+              children: user == null
+                  ? noneHome
+                  : user.role is UserRoleTypeAdmin
+                      ? adminHome
+                      : user.role is UserRoleTypeUser
+                          ? userHome
+                          : noneHome,
+            ),
+            Container(
+              alignment: Alignment.bottomCenter,
+              child: const CustomBottomNavbar(),
+            ),
+            CustomAnimHome(
+              text: '',
+              isCompleted: _height == 240,
+              duration: _duration,
+              height: _height,
+              radioValue: _radioValue,
+              durationIcon: _durationIcon,
+              iconHeight: _iconHeight,
+              iconWidth: _iconWidth,
+              onTap: () {},
+            ),
+          ],
+        ),
       ),
     );
   }

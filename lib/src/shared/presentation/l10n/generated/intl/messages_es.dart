@@ -44,6 +44,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "fullName": MessageLookupByLibrary.simpleMessage("Nombre completo"),
         "iWantToKnowMore":
             MessageLookupByLibrary.simpleMessage("¡Quiero saber máS!"),
+        "imageIsRequired":
+            MessageLookupByLibrary.simpleMessage("La imagen es obligatoria"),
         "invalidEmail": MessageLookupByLibrary.simpleMessage("Email inválido"),
         "invalidFullName":
             MessageLookupByLibrary.simpleMessage("Nombre completo inválido"),
@@ -64,6 +66,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordConfirmation":
             MessageLookupByLibrary.simpleMessage("Confirmar contraseña"),
         "price": MessageLookupByLibrary.simpleMessage("Precio"),
+        "productAdded":
+            MessageLookupByLibrary.simpleMessage("Producto añadido"),
         "profileInfoCard": MessageLookupByLibrary.simpleMessage(
             "Esta aplicación es una demo para el proyecto final de DAM de Cesur. Esta aplicación no tiene ningún fin comercial y es de uso libre. A sido realizada por Daniel Aranda Maestro"),
         "register": MessageLookupByLibrary.simpleMessage("Registrarse"),

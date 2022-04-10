@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
-import '../../shared/presentation/utils/resource.dart';
+import '../../shared/domain/models/product_model.dart';
+import '../../shared/infrastructure/collections.dart';
+import '../../shared/infrastructure/dto/product_dto.dart';
 import '../../shared/presentation/utils/result_or.dart';
 import '../../shared/domain/types/category_product_type.dart';
 import '../../shared/domain/failures/firebase_failure.dart';
@@ -22,31 +24,73 @@ class AdminRepositoryImplements extends AdminRepositoryInterface {
       required CategoryProductType category,
       required String imagePath,
       required double price,
-      required double oldPrice}) {
-    throw UnimplementedError();
+      required double oldPrice}) async {
+    try {
+      final imageUrl = await uploadImageProduct(imagePath: imagePath);
+
+      final documentReference =
+          await _firebaseFirestore.collection(productCollection).add({
+        'name': name,
+        'description': description,
+        'category': category.toString(),
+        'imageUrl': imageUrl,
+        'price': price,
+        'oldPrice': oldPrice,
+      });
+      await _firebaseFirestore
+          .collection(productCollection)
+          .doc(documentReference.id)
+          .set({
+        'id': documentReference.id,
+      }, SetOptions(merge: true));
+
+      return ResultOr.success();
+    } catch (e, _) {
+      return ResultOr.failure(FirebaseFailure.unknownError());
+    }
   }
 
   @override
-  Future<ResultOr<FirebaseFailure>> deleteProduct({required String productId}) {
-    throw UnimplementedError();
+  Future<ResultOr<FirebaseFailure>> deleteProduct(
+      {required String productId}) async {
+    try {
+      _firebaseFirestore.collection(productCollection).doc(productId).delete();
+      return ResultOr.success();
+    } catch (e, _) {
+      return ResultOr.failure(FirebaseFailure.unknownError());
+    }
   }
 
   @override
-  Future<ResultOr<FirebaseFailure>> getProducts() {
-    throw UnimplementedError();
+  Stream<List<ProductModel>> getProducts() async* {
+    try {
+      final snapshots =
+          _firebaseFirestore.collection(productCollection).snapshots();
+
+      yield* snapshots.map((snapshot) {
+        final products = snapshot.docs
+            .map((e) => ProductDto.fromMap(e.data()).toDomain())
+            .toList();
+
+        return products;
+      });
+    } catch (e) {
+      yield [];
+    }
   }
 
   @override
-  Future<Resource<FirebaseFailure, String>> uploadImageProduct(
-      {required String imagePath}) async {
-    final remotePath = 'products/photos/$imagePath';
-    final storageReference = FirebaseStorage.instance.ref(remotePath);
+  Future<String?> uploadImageProduct({required String imagePath}) async {
+    final fileName = imagePath.split('/').last;
+
+    final remotePath = 'products/photos/$fileName';
+    final storageReference = _firebaseStorage.ref(remotePath);
     try {
       final task = await storageReference.putFile(File(imagePath));
       final url = await task.ref.getDownloadURL();
-      return Resource.success(url);
+      return url;
     } on FirebaseException catch (e, _) {
-      return Resource.failure(FirebaseFailure.unknownError());
+      return null;
     }
   }
 }

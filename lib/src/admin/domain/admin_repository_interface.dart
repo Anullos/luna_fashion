@@ -1,6 +1,6 @@
 import '../../shared/domain/failures/firebase_failure.dart';
+import '../../shared/domain/models/product_model.dart';
 import '../../shared/domain/types/category_product_type.dart';
-import '../../shared/presentation/utils/resource.dart';
 import '../../shared/presentation/utils/result_or.dart';
 
 abstract class AdminRepositoryInterface {
@@ -14,8 +14,7 @@ abstract class AdminRepositoryInterface {
 
   Future<ResultOr<FirebaseFailure>> deleteProduct({required String productId});
 
-  Future<ResultOr<FirebaseFailure>> getProducts();
+  Stream<List<ProductModel>> getProducts();
 
-  Future<Resource<FirebaseFailure, String>> uploadImageProduct(
-      {required String imagePath});
+  Future<String?> uploadImageProduct({required String imagePath});
 }

@@ -9,17 +9,19 @@ class AddProductState {
     required this.price,
     required this.oldPrice,
     required this.showErrors,
+    required this.showErrorImage,
     required this.addProductFailureOrSuccess,
   });
 
   factory AddProductState.initial() => AddProductState(
         name: NameVos(''),
         description: DescriptionVos(''),
-        category: CategoryProductType.tshirts(),
-        imagePath: '',
-        price: 0.0,
-        oldPrice: 0.0,
+        category: CategoryProductType.pants(),
+        imagePath: null,
+        price: PriceVos(0.0),
+        oldPrice: PriceVos(0.0),
         showErrors: false,
+        showErrorImage: false,
         addProductFailureOrSuccess: ResultOr.none(),
       );
 
@@ -27,9 +29,10 @@ class AddProductState {
   final DescriptionVos description;
   final CategoryProductType category;
   final String? imagePath;
-  final double price;
-  final double oldPrice;
+  final PriceVos price;
+  final PriceVos oldPrice;
   final bool showErrors;
+  final bool showErrorImage;
   final ResultOr<FirebaseFailure> addProductFailureOrSuccess;
 
   AddProductState copyWith({
@@ -37,9 +40,10 @@ class AddProductState {
     DescriptionVos? description,
     CategoryProductType? category,
     String? imagePath,
-    double? price,
-    double? oldPrice,
+    PriceVos? price,
+    PriceVos? oldPrice,
     bool? showErrors,
+    bool? showErrorImage,
     ResultOr<FirebaseFailure>? addProductFailureOrSuccess,
   }) {
     return AddProductState(
@@ -50,6 +54,7 @@ class AddProductState {
       price: price ?? this.price,
       oldPrice: oldPrice ?? this.oldPrice,
       showErrors: showErrors ?? this.showErrors,
+      showErrorImage: showErrorImage ?? this.showErrorImage,
       addProductFailureOrSuccess:
           addProductFailureOrSuccess ?? this.addProductFailureOrSuccess,
     );
@@ -65,6 +70,7 @@ class AddProductState {
       price: $price,
       oldPrice: $oldPrice,
       showErrors: $showErrors,
+      showErrorImage: $showErrorImage,
       addProductFailureOrSuccess: $addProductFailureOrSuccess,
     )''';
   }
@@ -81,6 +87,7 @@ class AddProductState {
         price == other.price &&
         oldPrice == other.oldPrice &&
         showErrors == other.showErrors &&
+        showErrorImage == other.showErrorImage &&
         addProductFailureOrSuccess == other.addProductFailureOrSuccess;
   }
 
@@ -93,6 +100,7 @@ class AddProductState {
         price.hashCode ^
         oldPrice.hashCode ^
         showErrors.hashCode ^
+        showErrorImage.hashCode ^
         addProductFailureOrSuccess.hashCode;
   }
 }

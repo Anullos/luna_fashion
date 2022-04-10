@@ -449,6 +449,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Producto añadido`
+  String get productAdded {
+    return Intl.message(
+      'Producto añadido',
+      name: 'productAdded',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `La imagen es obligatoria`
+  String get imageIsRequired {
+    return Intl.message(
+      'La imagen es obligatoria',
+      name: 'imageIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

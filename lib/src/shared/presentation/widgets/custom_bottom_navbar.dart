@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../routes.dart';
 import '../../application/providers.dart';
 import '../../domain/types/user_role_type.dart';
+import '../../infrastructure/data/session_data.dart';
 import '../utils/luna_colors.dart';
 import 'custom_bottom_navbar_painter.dart';
 
@@ -54,7 +55,8 @@ class CustomBottomNavbar extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   NavBarIcon(
-                    text: "Home",
+                    text: sessionsHome[0].getName(
+                        ref.read(localizationController).locale.languageCode),
                     icon: Icons.home_outlined,
                     selected: pageIndex == 0,
                     onPressed: () => ref

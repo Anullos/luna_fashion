@@ -38,5 +38,7 @@
   "price": "Precio",
   "oldPrice": "Precio anterior",
   "add": "Añadir",
-  "nameFieldIsInvalid": "El nombre no es válido"
+  "nameFieldIsInvalid": "El nombre no es válido",
+  "productAdded": "Producto añadido",
+  "imageIsRequired": "La imagen es obligatoria"
 }

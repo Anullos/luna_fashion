@@ -44,6 +44,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "fullName": MessageLookupByLibrary.simpleMessage("Full name"),
         "iWantToKnowMore":
             MessageLookupByLibrary.simpleMessage("I want to know more!"),
+        "imageIsRequired":
+            MessageLookupByLibrary.simpleMessage("Image is required"),
         "invalidEmail": MessageLookupByLibrary.simpleMessage("Invalid email"),
         "invalidFullName":
             MessageLookupByLibrary.simpleMessage("Invalid full name"),
@@ -64,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordConfirmation":
             MessageLookupByLibrary.simpleMessage("Password confirmation"),
         "price": MessageLookupByLibrary.simpleMessage("Price"),
+        "productAdded": MessageLookupByLibrary.simpleMessage("Product added"),
         "profileInfoCard": MessageLookupByLibrary.simpleMessage(
             "This application is a demo for the Cesur DAM course. This application has no commercial purpose and is free to use. It has been made by Daniel Aranda Maestro"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),

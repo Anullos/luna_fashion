@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'src/shared/application/providers.dart';
 import 'src/shared/presentation/l10n/generated/l10n.dart';
 import 'src/shared/presentation/utils/logger_config.dart';
 import 'src/shared/presentation/utils/providers_logger.dart';
@@ -30,13 +31,13 @@ Future<void> main() async {
       FirebaseCrashlytics.instance.recordError);
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
   static FirebaseAnalyticsObserver observer =
       FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Luna Fashion',
@@ -51,6 +52,22 @@ class MyApp extends StatelessWidget {
         S.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
+      localeResolutionCallback: (locale, supportedLocales) {
+        ref.read(localizationController.notifier).localeChanged(locale!);
+        return locale;
+        // if (locale == null) {
+        //   return supportedLocales.first;
+        // }
+
+        // for (final supportedLocale in supportedLocales) {
+        //   if (supportedLocale.languageCode == locale.languageCode &&
+        //       supportedLocale.countryCode == locale.countryCode) {
+        //     return supportedLocale;
+        //   }
+        // }
+
+        // return supportedLocales.first;
+      },
       onGenerateRoute: AppRouter.onGenerateRoute,
       initialRoute: splashRoute,
     );

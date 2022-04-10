@@ -31,6 +31,7 @@ dependencies:
   flutter_svg: ^1.0.3 #images svg
   image_picker: ^0.8.5 #pick images
   url_launcher: ^6.0.20 #redirect webs
+  flutter_slidable: ^1.2.0 #slidable items
 
 dev_dependencies:
   flutter_test:

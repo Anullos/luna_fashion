@@ -13,6 +13,7 @@ import '../../auth/application/auth_controller.dart';
 import '../../auth/application/login_controller.dart';
 import '../../auth/application/signup_controller.dart';
 import '../../auth/infrastructure/auth_repository_implements.dart';
+import 'localization_controller.dart';
 
 // Globals
 final firebaseAuth = Provider((_) => FirebaseAuth.instance);
@@ -82,6 +83,13 @@ final homeController =
   },
 );
 
+final localizationController =
+    StateNotifierProvider<LocalizationController, LocalizationState>(
+  (ref) {
+    return LocalizationController();
+  },
+);
+
 // Admin
 final adminRepositoryProvider = Provider(
   (ref) => AdminRepositoryImplements(
@@ -95,5 +103,13 @@ final addProductController =
   (ref) {
     final repository = ref.watch(adminRepositoryProvider);
     return AddProductController(repository);
+  },
+);
+
+final productsList = StreamProvider.autoDispose(
+  (ref) async* {
+    final repository = ref.watch(adminRepositoryProvider);
+    final response = repository.getProducts();
+    yield* response;
   },
 );
