@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../admin/presentation/pages/orders_view.dart';
-import '../../../admin/presentation/pages/products_view.dart';
+import '../../../admin/presentation/pages/products_admin_view.dart';
 import '../../../cart/presentation/pages/cart_view.dart';
-import '../../../example/presentation/pages/example_view.dart';
 import '../../../home/presentation/pages/home_view.dart';
+import '../../../product/presentation/pages/products_view.dart';
 import '../../application/providers.dart';
 import '../../../user/presentation/pages/profile_view.dart';
 import '../../domain/types/user_role_type.dart';
@@ -80,10 +80,12 @@ class _HomePageState extends ConsumerState<HomePage> {
                           ? userHome
                           : noneHome,
             ),
-            Container(
-              alignment: Alignment.bottomCenter,
-              child: const CustomBottomNavbar(),
-            ),
+            user == null
+                ? Container()
+                : Container(
+                    alignment: Alignment.bottomCenter,
+                    child: const CustomBottomNavbar(),
+                  ),
             CustomAnimHome(
               text: '',
               isCompleted: _height == 240,
@@ -111,7 +113,7 @@ final noneHome = [
 
 final userHome = [
   const HomeView(),
-  const ExampleView(),
+  const ProductsView(),
   const CartView(),
   const ProfileView(),
 ];
@@ -119,6 +121,6 @@ final userHome = [
 final adminHome = [
   const HomeView(),
   const OrdersView(),
-  const ProductsView(),
+  const ProductsAdminView(),
   const ProfileView(),
 ];

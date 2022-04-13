@@ -5,6 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../admin/application/add_product_controller.dart';
 import '../../admin/infrastructure/admin_repository_implements.dart';
+import '../../product/application/products_controller.dart';
+import '../../product/infratructure/products_repository_implements.dart';
 import 'home_controller.dart';
 import '../../user/infrastructure/user_repository_implements.dart';
 import '../../auth/application/onboarding_controller.dart';
@@ -87,6 +89,21 @@ final localizationController =
     StateNotifierProvider<LocalizationController, LocalizationState>(
   (ref) {
     return LocalizationController();
+  },
+);
+
+// Products
+final productsRepositoryProvider = Provider(
+  (ref) => ProductsRepositoryImplements(
+    ref.watch(firebaseStore),
+  ),
+);
+
+final productsController =
+    StateNotifierProvider<ProductsController, ProductsState>(
+  (ref) {
+    final repository = ref.watch(productsRepositoryProvider);
+    return ProductsController(repository);
   },
 );
 

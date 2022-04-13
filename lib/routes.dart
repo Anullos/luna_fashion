@@ -4,6 +4,8 @@ import 'src/admin/presentation/pages/add_product.dart';
 import 'src/auth/presentation/pages/onboarding_page.dart';
 import 'src/auth/presentation/pages/signup_page.dart';
 import 'src/auth/presentation/pages/login_page.dart';
+import 'src/home/presentation/pages/product_details_page.dart';
+import 'src/shared/domain/models/product_model.dart';
 import 'src/shared/presentation/pages/home_page.dart';
 import 'src/shared/presentation/pages/splash_page.dart';
 
@@ -16,6 +18,7 @@ const String recoverPasswordRoute = '/recover-password';
 const String onBoardingRoute = '/onboarding';
 // zone home
 const String homeRoute = '/home';
+const String productRoute = '/product';
 // zone user
 const String editProfileRoute = '/edit-profile';
 const String changePasswordRoute = '/change-password';
@@ -65,6 +68,15 @@ class AppRouter {
             return FadeTransition(
                 opacity: animation1, child: const AddProduct());
           },
+        );
+      case productRoute:
+        return PageRouteBuilder(
+          transitionDuration: const Duration(milliseconds: 750),
+          pageBuilder: (_, animation, __) => FadeTransition(
+            opacity: animation,
+            child:
+                ProductDetailsPage(product: settings.arguments as ProductModel),
+          ),
         );
       // default
       default:

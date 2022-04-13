@@ -54,11 +54,11 @@ class _SplashPageState extends ConsumerState<SplashPage> {
         ),
         child: Center(
           child: Container(
-            height: 200,
-            width: 200,
+            height: 100,
+            width: 100,
             foregroundDecoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/logo.png'),
+                image: AssetImage('assets/luna_logo.png'),
                 fit: BoxFit.cover,
               ),
             ),

@@ -52,7 +52,7 @@ class CustomAnimScreen extends StatelessWidget {
                   curve: Curves.fastOutSlowIn,
                   foregroundDecoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/logo.png'),
+                      image: AssetImage('assets/luna_logo.png'),
                       fit: BoxFit.cover,
                     ),
                   ),

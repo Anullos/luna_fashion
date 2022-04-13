@@ -5,7 +5,6 @@ class LunaColors {
   static Color get lightPrimary => const Color(0xFFDDDFF2);
 
   static Color get white => const Color(0xFFFFFFFF);
-
   static Color get black => const Color(0xFF343434);
 
   static Color get darkGray => const Color(0xFF6F6F6F);
@@ -23,8 +22,7 @@ class LunaColors {
 
   static Color get red => const Color(0xFFC0392B);
 
-
-  
+  static Color get topProducts => const Color(0xff4286f4);
 
   static LinearGradient get backgroundAuthGradient => LinearGradient(
         begin: Alignment.topCenter,

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../widgets/product_list_widget.dart';
 
-class ProductsView extends StatelessWidget {
-  const ProductsView({Key? key}) : super(key: key);
+class ProductsAdminView extends StatelessWidget {
+  const ProductsAdminView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

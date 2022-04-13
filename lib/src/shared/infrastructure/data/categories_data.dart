@@ -4,7 +4,7 @@ import '../../domain/models/intl_model.dart';
 final categoriesApp = [
   CategoryProductAppModel(
     id: 'PANTS',
-    pictureUrl: 'pictureUrl',
+    pictureUrl: 'assets/icons/categories/jeans.png',
     nameIntl: IntlModel(
       es: 'Pantalón',
       en: 'Pants',
@@ -12,7 +12,7 @@ final categoriesApp = [
   ),
   CategoryProductAppModel(
     id: 'SHOES',
-    pictureUrl: 'pictureUrl',
+    pictureUrl: 'assets/icons/categories/shoe.png',
     nameIntl: IntlModel(
       es: 'Zapatos',
       en: 'Shoes',
@@ -20,7 +20,7 @@ final categoriesApp = [
   ),
   CategoryProductAppModel(
     id: 'TSHIRTS',
-    pictureUrl: 'pictureUrl',
+    pictureUrl: 'assets/icons/categories/tshirt.png',
     nameIntl: IntlModel(
       es: 'Camisetas',
       en: 'tShirts',
@@ -28,7 +28,7 @@ final categoriesApp = [
   ),
   CategoryProductAppModel(
     id: 'SWEATSHIRTS',
-    pictureUrl: 'pictureUrl',
+    pictureUrl: 'assets/icons/categories/informal.png',
     nameIntl: IntlModel(
       es: 'Sudaderas',
       en: 'Sweatshirts',
@@ -36,7 +36,7 @@ final categoriesApp = [
   ),
   CategoryProductAppModel(
     id: 'CAPS',
-    pictureUrl: 'pictureUrl',
+    pictureUrl: 'assets/icons/categories/cap.png',
     nameIntl: IntlModel(
       es: 'Gorras',
       en: 'Caps',
@@ -44,7 +44,7 @@ final categoriesApp = [
   ),
   CategoryProductAppModel(
     id: 'DRESSES',
-    pictureUrl: 'pictureUrl',
+    pictureUrl: 'assets/icons/categories/dress.png',
     nameIntl: IntlModel(
       es: 'Vestidos',
       en: 'Dresses',

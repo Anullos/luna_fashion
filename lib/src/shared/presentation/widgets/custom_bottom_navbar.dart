@@ -21,42 +21,55 @@ class CustomBottomNavbar extends StatelessWidget {
       elevation: 0,
       child: Stack(
         children: [
+          // Background
           CustomPaint(
             size: Size(size.width, height + 6),
             painter: CustomBottomNavbarPainter(
                 backgroundColor: LunaColors.nightMedium),
           ),
+          // Button center
           Consumer(builder: (_, ref, __) {
-            final user = ref.watch(userController).user;
+            final role =
+                ref.watch(userController.select((value) => value.user?.role));
             return Center(
               heightFactor: 0.6,
               child: FloatingActionButton(
                 backgroundColor: LunaColors.orangeLight,
-                child: Icon(user != null
-                    ? user.role is UserRoleTypeAdmin
+                child: Icon(role != null
+                    ? role is UserRoleTypeAdmin
                         ? Icons.add
                         : Icons.shopping_basket
                     : Icons.shopping_basket),
                 elevation: 0.1,
-                onPressed: () => user != null
-                    ? user.role is UserRoleTypeAdmin
+                onPressed: () => role != null
+                    ? role is UserRoleTypeAdmin
                         ? Navigator.pushNamed(context, addProductRoute)
                         : Navigator.pushNamed(context, seeOrdersRoute)
                     : null,
               ),
             );
           }),
+          // Buttons navigation
           Consumer(builder: (_, ref, __) {
             final pageIndex =
                 ref.watch(homeController.select((value) => value.pageIndex));
+            final role =
+                ref.watch(userController.select((value) => value.user?.role));
             return SizedBox(
               height: height,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   NavBarIcon(
-                    text: sessionsHome[0].getName(
-                        ref.read(localizationController).locale.languageCode),
+                    text: role != null && role is UserRoleTypeAdmin
+                        ? sessionsAdminHome[0].getName(ref
+                            .read(localizationController)
+                            .locale
+                            .languageCode)
+                        : sessionsHome[0].getName(ref
+                            .read(localizationController)
+                            .locale
+                            .languageCode),
                     icon: Icons.home_outlined,
                     selected: pageIndex == 0,
                     onPressed: () => ref
@@ -66,7 +79,15 @@ class CustomBottomNavbar extends StatelessWidget {
                     selectedColor: LunaColors.white,
                   ),
                   NavBarIcon(
-                    text: "List",
+                    text: role != null && role is UserRoleTypeAdmin
+                        ? sessionsAdminHome[1].getName(ref
+                            .read(localizationController)
+                            .locale
+                            .languageCode)
+                        : sessionsHome[1].getName(ref
+                            .read(localizationController)
+                            .locale
+                            .languageCode),
                     icon: Icons.featured_play_list_outlined,
                     selected: pageIndex == 1,
                     onPressed: () => ref
@@ -77,7 +98,15 @@ class CustomBottomNavbar extends StatelessWidget {
                   ),
                   const SizedBox(width: 56),
                   NavBarIcon(
-                      text: "Cart",
+                      text: role != null && role is UserRoleTypeAdmin
+                          ? sessionsAdminHome[2].getName(ref
+                              .read(localizationController)
+                              .locale
+                              .languageCode)
+                          : sessionsHome[2].getName(ref
+                              .read(localizationController)
+                              .locale
+                              .languageCode),
                       icon: Icons.local_grocery_store_outlined,
                       selected: pageIndex == 2,
                       onPressed: () => ref
@@ -86,7 +115,15 @@ class CustomBottomNavbar extends StatelessWidget {
                       defaultColor: LunaColors.black,
                       selectedColor: LunaColors.white),
                   NavBarIcon(
-                    text: "Profile",
+                    text: role != null && role is UserRoleTypeAdmin
+                        ? sessionsAdminHome[3].getName(ref
+                            .read(localizationController)
+                            .locale
+                            .languageCode)
+                        : sessionsHome[3].getName(ref
+                            .read(localizationController)
+                            .locale
+                            .languageCode),
                     icon: Icons.person_outline_outlined,
                     selected: pageIndex == 3,
                     onPressed: () => ref

@@ -52,6 +52,7 @@ class CustomAnimHome extends StatelessWidget {
                     width: height < iconHeight ? height : iconWidth,
                     curve: Curves.fastOutSlowIn,
                     foregroundDecoration: const BoxDecoration(
+                      shape: BoxShape.circle,
                       image: DecorationImage(
                         image: AssetImage('assets/logo.png'),
                         fit: BoxFit.cover,

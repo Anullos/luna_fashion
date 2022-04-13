@@ -44,17 +44,19 @@ flutter:
   assets:
     - assets/
     - assets/icons/
+    - assets/icons/categories/
     - assets/images/
+    - assets/images/products/
     - assets/lotties/
 
 flutter_native_splash:
-  image: assets/images/splash.png
-  color: "#ffffff"
+  image: assets/luna_logo.png
+  color: "#373B44"
 
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/logo_launch.png"
+  image_path: "assets/logo.png"
 
 flutter_intl:
   enabled: true
