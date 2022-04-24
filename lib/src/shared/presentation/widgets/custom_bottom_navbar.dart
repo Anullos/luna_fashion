@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../routes.dart';
 import '../../application/providers.dart';
 import '../../domain/types/user_role_type.dart';
 import '../../infrastructure/data/session_data.dart';
 import '../utils/luna_colors.dart';
 import 'custom_bottom_navbar_painter.dart';
+import 'custom_button_center.dart';
 
 class CustomBottomNavbar extends StatelessWidget {
   const CustomBottomNavbar({Key? key}) : super(key: key);
@@ -28,27 +28,7 @@ class CustomBottomNavbar extends StatelessWidget {
                 backgroundColor: LunaColors.nightMedium),
           ),
           // Button center
-          Consumer(builder: (_, ref, __) {
-            final role =
-                ref.watch(userController.select((value) => value.user?.role));
-            return Center(
-              heightFactor: 0.6,
-              child: FloatingActionButton(
-                backgroundColor: LunaColors.orangeLight,
-                child: Icon(role != null
-                    ? role is UserRoleTypeAdmin
-                        ? Icons.add
-                        : Icons.shopping_basket
-                    : Icons.shopping_basket),
-                elevation: 0.1,
-                onPressed: () => role != null
-                    ? role is UserRoleTypeAdmin
-                        ? Navigator.pushNamed(context, addProductRoute)
-                        : Navigator.pushNamed(context, seeOrdersRoute)
-                    : null,
-              ),
-            );
-          }),
+          const CustomButtonCenter(),
           // Buttons navigation
           Consumer(builder: (_, ref, __) {
             final pageIndex =

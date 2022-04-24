@@ -18,8 +18,8 @@ final sessionsHome = [
   ),
   SessionModel(
     titleIntl: IntlModel(
-      es: 'Carrito',
-      en: 'Cart',
+      es: 'Pedidos',
+      en: 'Orders',
     ),
     iconUrl: 'local grocery store',
   ),

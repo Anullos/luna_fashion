@@ -67,6 +67,7 @@ class AuthRepositoryImplements extends AuthRepositoryInterface {
         'role': UserRoleType.user().toString(),
         'createdAt': DateTime.now().millisecondsSinceEpoch,
         'isOnBoardingCompleted': false,
+        'currentCart': [],
       });
 
       return ResultOr.success();

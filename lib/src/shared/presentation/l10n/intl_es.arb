@@ -40,5 +40,20 @@
   "add": "Añadir",
   "nameFieldIsInvalid": "El nombre no es válido",
   "productAdded": "Producto añadido",
-  "imageIsRequired": "La imagen es obligatoria"
+  "imageIsRequired": "La imagen es obligatoria",
+  "haveNotPlacedOrder": "No has realizado ningún pedido",
+  "pending": "Pendiente",
+  "pickUp": "Listo para recoger",
+  "rejected": "Rechazado",
+  "completed": "Completado",
+  "totalOfProducts": "Total de productos: ",
+  "totalToPay": "Total a pagar: ",
+  "statusOrder": "Estado del pedido: ",
+  "quantity": "Cantidad: ",
+  "total": "Total: ",
+  "cart": "Carrito",
+  "myProducts": "Mis productos",
+  "resume": "Resumen",
+  "sendOrder": "Enviar pedido",
+  "haveNotItemsInCart": "No tienes productos en el carrito"
 }

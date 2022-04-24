@@ -40,5 +40,20 @@
   "add": "Add",
   "nameFieldIsInvalid": "Name field is invalid",
   "productAdded": "Product added",
-  "imageIsRequired": "Image is required"
+  "imageIsRequired": "Image is required",
+  "haveNotPlacedOrder": "You have not placed any order",
+  "pending": "Pending",
+  "pickUp": "Pick up",
+  "rejected": "Rejected",
+  "completed": "Completed",
+  "totalOfProducts": "Total of products: ",
+  "totalToPay": "Total to pay: ",
+  "statusOrder": "Status order: ",
+  "quantity": "Quantity: ",
+  "total": "Total: ",
+  "cart": "Cart",
+  "myProducts": "My products",
+  "resume": "Resume",
+  "sendOrder": "Send order",
+  "haveNotItemsInCart": "You have not items in your shopping cart"
 }

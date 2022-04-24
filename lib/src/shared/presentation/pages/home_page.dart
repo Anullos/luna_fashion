@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../admin/presentation/pages/orders_view.dart';
 import '../../../admin/presentation/pages/products_admin_view.dart';
-import '../../../cart/presentation/pages/cart_view.dart';
 import '../../../home/presentation/pages/home_view.dart';
+import '../../../order/presentation/pages/order_view.dart';
 import '../../../product/presentation/pages/products_view.dart';
 import '../../application/providers.dart';
 import '../../../user/presentation/pages/profile_view.dart';
@@ -114,7 +114,7 @@ final noneHome = [
 final userHome = [
   const HomeView(),
   const ProductsView(),
-  const CartView(),
+  const OrderView(),
   const ProfileView(),
 ];
 

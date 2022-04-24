@@ -469,6 +469,156 @@ class S {
       args: [],
     );
   }
+
+  /// `No has realizado ningún pedido`
+  String get haveNotPlacedOrder {
+    return Intl.message(
+      'No has realizado ningún pedido',
+      name: 'haveNotPlacedOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pendiente`
+  String get pending {
+    return Intl.message(
+      'Pendiente',
+      name: 'pending',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Listo para recoger`
+  String get pickUp {
+    return Intl.message(
+      'Listo para recoger',
+      name: 'pickUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rechazado`
+  String get rejected {
+    return Intl.message(
+      'Rechazado',
+      name: 'rejected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Completado`
+  String get completed {
+    return Intl.message(
+      'Completado',
+      name: 'completed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total de productos: `
+  String get totalOfProducts {
+    return Intl.message(
+      'Total de productos: ',
+      name: 'totalOfProducts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total a pagar: `
+  String get totalToPay {
+    return Intl.message(
+      'Total a pagar: ',
+      name: 'totalToPay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Estado del pedido: `
+  String get statusOrder {
+    return Intl.message(
+      'Estado del pedido: ',
+      name: 'statusOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cantidad: `
+  String get quantity {
+    return Intl.message(
+      'Cantidad: ',
+      name: 'quantity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total: `
+  String get total {
+    return Intl.message(
+      'Total: ',
+      name: 'total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Carrito`
+  String get cart {
+    return Intl.message(
+      'Carrito',
+      name: 'cart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mis productos`
+  String get myProducts {
+    return Intl.message(
+      'Mis productos',
+      name: 'myProducts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resumen`
+  String get resume {
+    return Intl.message(
+      'Resumen',
+      name: 'resume',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enviar pedido`
+  String get sendOrder {
+    return Intl.message(
+      'Enviar pedido',
+      name: 'sendOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No tienes productos en el carrito`
+  String get haveNotItemsInCart {
+    return Intl.message(
+      'No tienes productos en el carrito',
+      name: 'haveNotItemsInCart',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

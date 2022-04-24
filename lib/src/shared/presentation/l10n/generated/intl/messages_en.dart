@@ -26,11 +26,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "addProduct": MessageLookupByLibrary.simpleMessage("Add product"),
         "alderadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "cart": MessageLookupByLibrary.simpleMessage("Cart"),
         "category": MessageLookupByLibrary.simpleMessage("Category"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change password"),
         "chooseFromGallery":
             MessageLookupByLibrary.simpleMessage("Choose from gallery"),
+        "completed": MessageLookupByLibrary.simpleMessage("Completed"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "didYouKnow": MessageLookupByLibrary.simpleMessage("Did you know?"),
         "dontHaveAccount":
@@ -42,6 +44,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot password?"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full name"),
+        "haveNotItemsInCart": MessageLookupByLibrary.simpleMessage(
+            "You have not items in your shopping cart"),
+        "haveNotPlacedOrder": MessageLookupByLibrary.simpleMessage(
+            "You have not placed any order"),
         "iWantToKnowMore":
             MessageLookupByLibrary.simpleMessage("I want to know more!"),
         "imageIsRequired":
@@ -52,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "mismatchedPasswords":
             MessageLookupByLibrary.simpleMessage("Mismatched passwords"),
+        "myProducts": MessageLookupByLibrary.simpleMessage("My products"),
         "myProfile": MessageLookupByLibrary.simpleMessage("My profile"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "nameFieldIsInvalid":
@@ -65,20 +72,31 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordConfirmation":
             MessageLookupByLibrary.simpleMessage("Password confirmation"),
+        "pending": MessageLookupByLibrary.simpleMessage("Pending"),
+        "pickUp": MessageLookupByLibrary.simpleMessage("Pick up"),
         "price": MessageLookupByLibrary.simpleMessage("Price"),
         "productAdded": MessageLookupByLibrary.simpleMessage("Product added"),
         "profileInfoCard": MessageLookupByLibrary.simpleMessage(
             "This application is a demo for the Cesur DAM course. This application has no commercial purpose and is free to use. It has been made by Daniel Aranda Maestro"),
+        "quantity": MessageLookupByLibrary.simpleMessage("Quantity: "),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
+        "rejected": MessageLookupByLibrary.simpleMessage("Rejected"),
+        "resume": MessageLookupByLibrary.simpleMessage("Resume"),
+        "sendOrder": MessageLookupByLibrary.simpleMessage("Send order"),
         "serverError": MessageLookupByLibrary.simpleMessage("Server error"),
         "signOut": MessageLookupByLibrary.simpleMessage("Sign out"),
         "signup": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "statusOrder": MessageLookupByLibrary.simpleMessage("Status order: "),
         "support": MessageLookupByLibrary.simpleMessage("Support"),
         "takeAPhoto": MessageLookupByLibrary.simpleMessage("Take a photo"),
         "termAndConditions":
             MessageLookupByLibrary.simpleMessage("Terms and conditions"),
         "tooLong": MessageLookupByLibrary.simpleMessage("Too long"),
         "tooShot": MessageLookupByLibrary.simpleMessage("Too short"),
+        "total": MessageLookupByLibrary.simpleMessage("Total: "),
+        "totalOfProducts":
+            MessageLookupByLibrary.simpleMessage("Total of products: "),
+        "totalToPay": MessageLookupByLibrary.simpleMessage("Total to pay: "),
         "unknownError": MessageLookupByLibrary.simpleMessage("Unknown error"),
         "weakPassword": MessageLookupByLibrary.simpleMessage("Weak password")
       };

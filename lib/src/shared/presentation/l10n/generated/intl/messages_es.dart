@@ -26,11 +26,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "addProduct": MessageLookupByLibrary.simpleMessage("Añadir producto"),
         "alderadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("¿Ya tienes una cuenta?"),
+        "cart": MessageLookupByLibrary.simpleMessage("Carrito"),
         "category": MessageLookupByLibrary.simpleMessage("Categoría"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Cambiar contraseña"),
         "chooseFromGallery":
             MessageLookupByLibrary.simpleMessage("Elegir de la galería"),
+        "completed": MessageLookupByLibrary.simpleMessage("Completado"),
         "description": MessageLookupByLibrary.simpleMessage("Descripción"),
         "didYouKnow": MessageLookupByLibrary.simpleMessage("¿Sabías que?"),
         "dontHaveAccount":
@@ -42,6 +44,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("¿Olvidaste tu contraseña?"),
         "fullName": MessageLookupByLibrary.simpleMessage("Nombre completo"),
+        "haveNotItemsInCart": MessageLookupByLibrary.simpleMessage(
+            "No tienes productos en el carrito"),
+        "haveNotPlacedOrder": MessageLookupByLibrary.simpleMessage(
+            "No has realizado ningún pedido"),
         "iWantToKnowMore":
             MessageLookupByLibrary.simpleMessage("¡Quiero saber máS!"),
         "imageIsRequired":
@@ -52,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "mismatchedPasswords": MessageLookupByLibrary.simpleMessage(
             "Las contraseñas no coinciden"),
+        "myProducts": MessageLookupByLibrary.simpleMessage("Mis productos"),
         "myProfile": MessageLookupByLibrary.simpleMessage("Mi perfil"),
         "name": MessageLookupByLibrary.simpleMessage("Nombre"),
         "nameFieldIsInvalid":
@@ -65,22 +72,34 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
         "passwordConfirmation":
             MessageLookupByLibrary.simpleMessage("Confirmar contraseña"),
+        "pending": MessageLookupByLibrary.simpleMessage("Pendiente"),
+        "pickUp": MessageLookupByLibrary.simpleMessage("Listo para recoger"),
         "price": MessageLookupByLibrary.simpleMessage("Precio"),
         "productAdded":
             MessageLookupByLibrary.simpleMessage("Producto añadido"),
         "profileInfoCard": MessageLookupByLibrary.simpleMessage(
             "Esta aplicación es una demo para el proyecto final de DAM de Cesur. Esta aplicación no tiene ningún fin comercial y es de uso libre. A sido realizada por Daniel Aranda Maestro"),
+        "quantity": MessageLookupByLibrary.simpleMessage("Cantidad: "),
         "register": MessageLookupByLibrary.simpleMessage("Registrarse"),
+        "rejected": MessageLookupByLibrary.simpleMessage("Rechazado"),
+        "resume": MessageLookupByLibrary.simpleMessage("Resumen"),
+        "sendOrder": MessageLookupByLibrary.simpleMessage("Enviar pedido"),
         "serverError":
             MessageLookupByLibrary.simpleMessage("Error en el servidor"),
         "signOut": MessageLookupByLibrary.simpleMessage("Cerrar sesión"),
         "signup": MessageLookupByLibrary.simpleMessage("Registrar"),
+        "statusOrder":
+            MessageLookupByLibrary.simpleMessage("Estado del pedido: "),
         "support": MessageLookupByLibrary.simpleMessage("Soporte"),
         "takeAPhoto": MessageLookupByLibrary.simpleMessage("Tomar una foto"),
         "termAndConditions":
             MessageLookupByLibrary.simpleMessage("Términos y condiciones"),
         "tooLong": MessageLookupByLibrary.simpleMessage("Muy largo"),
         "tooShot": MessageLookupByLibrary.simpleMessage("Muy corto"),
+        "total": MessageLookupByLibrary.simpleMessage("Total: "),
+        "totalOfProducts":
+            MessageLookupByLibrary.simpleMessage("Total de productos: "),
+        "totalToPay": MessageLookupByLibrary.simpleMessage("Total a pagar: "),
         "unknownError":
             MessageLookupByLibrary.simpleMessage("Error desconocido"),
         "weakPassword": MessageLookupByLibrary.simpleMessage("Contraseña débil")

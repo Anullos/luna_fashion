@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import '../../../order/infrastructure/dto/product_order_dto.dart';
 import '../../domain/models/user_model.dart';
 import '../../domain/types/user_role_type.dart';
 
@@ -11,6 +12,7 @@ class UserDto {
   final UserRoleType role;
   final int createdAt;
   final bool isOnBoardingCompleted;
+  final List<ProductOrderDto> currentCart;
   UserDto({
     required this.id,
     required this.fullName,
@@ -19,6 +21,7 @@ class UserDto {
     required this.role,
     required this.createdAt,
     required this.isOnBoardingCompleted,
+    required this.currentCart,
   });
   UserDto._({
     required this.id,
@@ -28,6 +31,7 @@ class UserDto {
     required this.role,
     required this.createdAt,
     required this.isOnBoardingCompleted,
+    required this.currentCart,
   });
 
   static UserDto fromDomain(UserModel domain) {
@@ -39,6 +43,8 @@ class UserDto {
       role: domain.role,
       createdAt: domain.createdAt,
       isOnBoardingCompleted: domain.isOnBoardingCompleted,
+      currentCart:
+          domain.currentCart.map((e) => ProductOrderDto.fromDomain(e)).toList(),
     );
   }
 
@@ -51,6 +57,7 @@ class UserDto {
       role: role,
       createdAt: createdAt,
       isOnBoardingCompleted: isOnBoardingCompleted,
+      currentCart: currentCart.map((e) => e.toDomain()).toList(),
     );
   }
 
@@ -63,6 +70,7 @@ class UserDto {
       'role': role.toString(),
       'createdAt': createdAt,
       'isOnBoardingCompleted': isOnBoardingCompleted,
+      'currentCart': currentCart.map((e) => e.toMap()).toList(),
     };
   }
 
@@ -75,6 +83,9 @@ class UserDto {
       role: UserRoleType.fromString(map['role']),
       createdAt: map['createdAt']?.toInt() ?? 0,
       isOnBoardingCompleted: map['isOnBoardingCompleted'] ?? false,
+      currentCart: List<ProductOrderDto>.from(
+        map['currentCart']?.map((e) => ProductOrderDto.fromMap(e)),
+      ),
     );
   }
 

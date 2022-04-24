@@ -72,16 +72,35 @@ class ItemTopProduct extends StatelessWidget {
                         ),
                         const SizedBox(height: 10),
                         const Spacer(),
-                        Align(
-                          alignment: Alignment.bottomRight,
-                          child: Text(
-                            "\$${product.price}",
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 22,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            // InkWell(
+                            //   onTap: () {
+                            //     print('add  to cart');
+                            //   },
+                            //   child: Container(
+                            //     decoration: BoxDecoration(
+                            //       shape: BoxShape.circle,
+                            //       color: LunaColors.orangeLight,
+                            //     ),
+                            //     child: Icon(
+                            //       Icons.add_circle,
+                            //       color: LunaColors.white,
+                            //       size: 36,
+                            //     ),
+                            //   ),
+                            // ),
+                            Container(),
+                            Text(
+                              "\$${product.price}",
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 22,
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                         const SizedBox(height: 4),
                       ],

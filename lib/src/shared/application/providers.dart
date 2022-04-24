@@ -5,7 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../admin/application/add_product_controller.dart';
 import '../../admin/infrastructure/admin_repository_implements.dart';
+import '../../cart/application/cart_controller.dart';
+import '../../order/infrastructure/order_repository_implements.dart';
+import '../../product/application/product_details_controller.dart';
 import '../../product/application/products_controller.dart';
+import '../../product/infratructure/cart_repository_implements.dart';
 import '../../product/infratructure/products_repository_implements.dart';
 import 'home_controller.dart';
 import '../../user/infrastructure/user_repository_implements.dart';
@@ -99,11 +103,33 @@ final productsRepositoryProvider = Provider(
   ),
 );
 
+final cartRepositoryProvider = Provider.autoDispose(
+  (ref) => CartRepositoryImplements(
+    ref.watch(firebaseStore),
+  ),
+);
+
 final productsController =
     StateNotifierProvider<ProductsController, ProductsState>(
   (ref) {
     final repository = ref.watch(productsRepositoryProvider);
     return ProductsController(repository);
+  },
+);
+
+final productDetailsController = StateNotifierProvider.autoDispose<
+    ProductDetailsController, ProductDetailsState>(
+  (ref) {
+    final repository = ref.watch(cartRepositoryProvider);
+    return ProductDetailsController(repository);
+  },
+);
+
+final cartController =
+    StateNotifierProvider.autoDispose<CartController, CartState>(
+  (ref) {
+    final repository = ref.watch(cartRepositoryProvider);
+    return CartController(repository);
   },
 );
 
@@ -127,6 +153,29 @@ final productsList = StreamProvider.autoDispose(
   (ref) async* {
     final repository = ref.watch(adminRepositoryProvider);
     final response = repository.getProducts();
+    yield* response;
+  },
+);
+
+// Order
+final orderRepositoryProvider = Provider(
+  (ref) => OrderRepositoryImplements(
+    ref.watch(firebaseStore),
+  ),
+);
+
+// final addProductController =
+//     StateNotifierProvider.autoDispose<AddProductController, AddProductState>(
+//   (ref) {
+//     final repository = ref.watch(adminRepositoryProvider);
+//     return AddProductController(repository);
+//   },
+// );
+
+final ordersList = StreamProvider.autoDispose(
+  (ref) async* {
+    final repository = ref.watch(orderRepositoryProvider);
+    final response = repository.findOrders();
     yield* response;
   },
 );

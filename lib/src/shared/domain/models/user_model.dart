@@ -1,3 +1,4 @@
+import '../../../order/domain/models/product_order_model.dart';
 import '../types/user_role_type.dart';
 
 class UserModel {
@@ -8,6 +9,7 @@ class UserModel {
   final UserRoleType role;
   final int createdAt;
   final bool isOnBoardingCompleted;
+  final List<ProductOrderModel> currentCart;
   UserModel({
     required this.id,
     required this.fullName,
@@ -16,6 +18,7 @@ class UserModel {
     required this.role,
     required this.createdAt,
     required this.isOnBoardingCompleted,
+    required this.currentCart,
   });
 
   UserModel copyWith({
@@ -26,6 +29,7 @@ class UserModel {
     UserRoleType? role,
     int? createdAt,
     bool? isOnBoardingCompleted,
+    List<ProductOrderModel>? currentCart,
   }) {
     return UserModel(
       id: id ?? this.id,
@@ -36,6 +40,7 @@ class UserModel {
       createdAt: createdAt ?? this.createdAt,
       isOnBoardingCompleted:
           isOnBoardingCompleted ?? this.isOnBoardingCompleted,
+      currentCart: currentCart ?? this.currentCart,
     );
   }
 
@@ -55,7 +60,8 @@ class UserModel {
         other.profilePictureUrl == profilePictureUrl &&
         other.role == role &&
         other.createdAt == createdAt &&
-        other.isOnBoardingCompleted == isOnBoardingCompleted;
+        other.isOnBoardingCompleted == isOnBoardingCompleted &&
+        other.currentCart == currentCart;
   }
 
   @override
@@ -66,6 +72,7 @@ class UserModel {
         profilePictureUrl.hashCode ^
         role.hashCode ^
         createdAt.hashCode ^
-        isOnBoardingCompleted.hashCode;
+        isOnBoardingCompleted.hashCode ^
+        currentCart.hashCode;
   }
 }
