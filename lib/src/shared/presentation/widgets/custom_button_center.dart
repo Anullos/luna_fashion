@@ -46,24 +46,25 @@ class _CustomButtonCenterState extends ConsumerState<CustomButtonCenter> {
                         fit: StackFit.expand,
                         children: [
                           const Icon(Icons.shopping_basket),
-                          Positioned(
-                            top: 0,
-                            right: 0,
-                            child: Container(
-                              width: 20,
-                              height: 20,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: LunaColors.orange,
-                                shape: BoxShape.circle,
-                              ),
-                              child: Text(
-                                currentCart!.length.toString(),
-                                style: const TextStyle(
-                                    color: Colors.white, fontSize: 12),
+                          if (currentCart!.isNotEmpty)
+                            Positioned(
+                              top: 0,
+                              right: 0,
+                              child: Container(
+                                width: 20,
+                                height: 20,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  color: LunaColors.orange,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Text(
+                                  currentCart.length.toString(),
+                                  style: const TextStyle(
+                                      color: Colors.white, fontSize: 12),
+                                ),
                               ),
                             ),
-                          ),
                         ],
                       )
                 : const Icon(Icons.shopping_basket),

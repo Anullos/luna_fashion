@@ -69,6 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "oldPrice": MessageLookupByLibrary.simpleMessage("Old price"),
         "operationNotAllowed":
             MessageLookupByLibrary.simpleMessage("Operation not allowed"),
+        "orderSend": MessageLookupByLibrary.simpleMessage("Pedido enviado"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordConfirmation":
             MessageLookupByLibrary.simpleMessage("Password confirmation"),

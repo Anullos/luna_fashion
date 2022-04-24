@@ -7,38 +7,33 @@ class CustomButtonWidget extends StatelessWidget {
     Key? key,
     required this.onTap,
     required this.text,
-    this.backgroundGradient,
+    this.background,
     this.isLoading = false,
   }) : super(key: key);
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final String text;
-  final LinearGradient? backgroundGradient;
+  final Color? background;
   final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
     return isLoading
         ? const CircularProgressIndicator()
-        : InkWell(
-            onTap: onTap,
-            child: Container(
-              width: double.infinity,
-              height: 40,
-              decoration: BoxDecoration(
-                gradient:
-                    backgroundGradient ?? LunaColors.backgroundAuthGradient,
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(100),
-                ),
+        : ElevatedButton(
+            onPressed: onTap,
+            style: ElevatedButton.styleFrom(
+              primary: background ?? LunaColors.orangeLight,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
               ),
-              alignment: Alignment.center,
-              child: Text(
-                text,
-                style: const TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+            ),
+            child: Text(
+              text,
+              style: const TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
               ),
             ),
           );

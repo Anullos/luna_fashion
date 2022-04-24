@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../order/domain/models/product_order_model.dart';
+import '../../order/domain/types/order_status_type.dart';
 import '../../order/infrastructure/dto/product_order_dto.dart';
 import '../../shared/domain/models/user_model.dart';
 import '../../shared/infrastructure/collections.dart';
@@ -61,13 +64,15 @@ class CartRepositoryImplements extends CartRepositoryInterface {
 
   @override
   Future<ResultOr<FirebaseFailure>> updateCartProduct(
-      ProductModel product, int quantity, UserModel user) async {
+      ProductOrderModel product, int quantity, UserModel user) async {
     try {
       final currentCart = user.currentCart;
-      final productOrder = currentCart.firstWhere(
-        (productOrder) => productOrder.id == product.id,
-      );
-      productOrder.copyWith(quantity: quantity);
+
+      final index =
+          currentCart.indexWhere((element) => element.id == product.id);
+
+      currentCart[index] = currentCart[index]
+          .copyWith(quantity: currentCart[index].quantity + quantity);
 
       final data = currentCart
           .map((e) => ProductOrderDto.fromDomain(e).toMap())
@@ -87,6 +92,34 @@ class CartRepositoryImplements extends CartRepositoryInterface {
   @override
   Future<ResultOr<FirebaseFailure>> createOrder(
       List<ProductOrderModel> products, UserModel user) async {
-    throw UnimplementedError();
+    try {
+      final data =
+          products.map((e) => ProductOrderDto.fromDomain(e).toMap()).toList();
+
+      final documentReference =
+          await _firebaseFirestore.collection(ordersCollection).add({
+        'userId': user.id,
+        'products': data,
+        'status': OrderStatusType.pending().toString(),
+        'atCreated': DateTime.now().millisecondsSinceEpoch,
+        'atUpdated': DateTime.now().millisecondsSinceEpoch,
+      });
+
+      await _firebaseFirestore
+          .collection(ordersCollection)
+          .doc(documentReference.id)
+          .set({
+        'id': documentReference.id,
+      }, SetOptions(merge: true));
+
+      await _firebaseFirestore.collection(userCollection).doc(user.id).set({
+        'currentCart': [],
+      }, SetOptions(merge: true));
+
+      return ResultOr.success();
+    } catch (e, f) {
+      log('Error: $e, Stack: $f');
+      return ResultOr.failure(FirebaseFailure.unknownError());
+    }
   }
 }

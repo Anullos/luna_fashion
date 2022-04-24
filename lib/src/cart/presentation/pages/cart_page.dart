@@ -4,7 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../shared/application/providers.dart';
 import '../../../shared/presentation/l10n/generated/l10n.dart';
 import '../../../shared/presentation/utils/luna_colors.dart';
+import '../../../shared/presentation/utils/toasts.dart';
 import '../../../shared/presentation/widgets/custom_button_widget.dart';
+import '../../application/cart_controller.dart';
 import '../widgets/list_product_order.dart';
 import '../widgets/resume_cart.dart';
 
@@ -39,9 +41,10 @@ class CartPage extends StatelessWidget {
                     S.of(context).myProducts,
                     style: TextStyle(fontSize: 20, color: LunaColors.white),
                   ),
+                  // List of products
                   const ListProductOrder(),
                   const SizedBox(height: 20),
-                  // Resumen de coste
+                  // Resume
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -56,13 +59,36 @@ class CartPage extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 40),
-                  // Boton Order Pedido
+                  // Botton Order
                   Consumer(builder: (_, ref, __) {
-                    ref.watch(cartController);
+                    ref.listen<CartState>(
+                      cartController,
+                      (_, next) {
+                        next.createOrderFailureOrSuccess
+                          ..whenIsSuccess(() {
+                            Navigator.pop(context);
+                            showSuccess(context,
+                                message: S.of(context).orderSend);
+                          })
+                          ..whenIsFailure(
+                            (failure) => showError(
+                              context,
+                              message: failure.map(
+                                unknownError: (_) => S.of(context).unknownError,
+                              ),
+                            ),
+                          );
+                      },
+                    );
+                    final user = ref.watch(userController).user!;
                     return Center(
                       child: CustomButtonWidget(
                         isLoading: false,
-                        onTap: () {},
+                        onTap: user.currentCart.isEmpty
+                            ? null
+                            : () => ref
+                                .read(cartController.notifier)
+                                .createOrder(user),
                         text: S.of(context).sendOrder,
                       ),
                     );

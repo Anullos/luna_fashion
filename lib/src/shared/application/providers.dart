@@ -161,6 +161,7 @@ final productsList = StreamProvider.autoDispose(
 final orderRepositoryProvider = Provider(
   (ref) => OrderRepositoryImplements(
     ref.watch(firebaseStore),
+    ref.watch(firebaseAuth),
   ),
 );
 

@@ -34,8 +34,14 @@ class ListProductOrder extends ConsumerWidget {
                     .read(cartController.notifier)
                     .removeProductCart(
                         currentCart[index], ref.read(userController).user!),
-                lessQuantity: () {},
-                moreQuantity: () {},
+                lessQuantity: () => ref
+                    .read(cartController.notifier)
+                    .updateProductCart(
+                        currentCart[index], -1, ref.read(userController).user!),
+                moreQuantity: () => ref
+                    .read(cartController.notifier)
+                    .updateProductCart(
+                        currentCart[index], 1, ref.read(userController).user!),
               );
             },
           );

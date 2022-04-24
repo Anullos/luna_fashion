@@ -55,5 +55,6 @@
   "myProducts": "My products",
   "resume": "Resume",
   "sendOrder": "Send order",
-  "haveNotItemsInCart": "You have not items in your shopping cart"
+  "haveNotItemsInCart": "You have not items in your shopping cart",
+  "orderSend": "Pedido enviado"
 }

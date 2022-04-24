@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../shared/application/providers.dart';
 import '../../../shared/presentation/l10n/generated/l10n.dart';
+import '../../../shared/presentation/utils/functions.dart';
 
 class ResumeCart extends ConsumerWidget {
   const ResumeCart({Key? key}) : super(key: key);
@@ -25,7 +26,7 @@ class ResumeCart extends ConsumerWidget {
                   style: const TextStyle(fontSize: 18),
                 ),
                 Text(
-                  currentCart!.length.toString(),
+                  getTotalProducts(currentCart!),
                   style: const TextStyle(fontSize: 18),
                 ),
               ],
@@ -41,9 +42,10 @@ class ResumeCart extends ConsumerWidget {
                   style: const TextStyle(
                       fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                const Text(
-                  '€',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                Text(
+                  '${getTotalPayment(currentCart)} €',
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ],
             ),

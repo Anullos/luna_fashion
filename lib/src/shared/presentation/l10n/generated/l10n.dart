@@ -619,6 +619,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Pedido enviado`
+  String get orderSend {
+    return Intl.message(
+      'Pedido enviado',
+      name: 'orderSend',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

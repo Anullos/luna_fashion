@@ -11,7 +11,7 @@ abstract class CartRepositoryInterface {
       String productId, UserModel user);
 
   Future<ResultOr<FirebaseFailure>> updateCartProduct(
-      ProductModel product, int quantity, UserModel user);
+      ProductOrderModel product, int quantity, UserModel user);
 
   Future<ResultOr<FirebaseFailure>> createOrder(
       List<ProductOrderModel> products, UserModel user);

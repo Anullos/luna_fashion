@@ -2,47 +2,42 @@ part of 'cart_controller.dart';
 
 class CartState {
   const CartState({
-    required this.product,
-    required this.quantity,
     required this.updateCardProductFailureOrSuccess,
     required this.removeCardProductFailureOrSuccess,
+    required this.createOrderFailureOrSuccess,
   });
 
   factory CartState.initial() => CartState(
-        product: null,
-        quantity: 1,
         updateCardProductFailureOrSuccess: ResultOr.none(),
         removeCardProductFailureOrSuccess: ResultOr.none(),
+        createOrderFailureOrSuccess: ResultOr.none(),
       );
 
-  final ProductModel? product;
-  final int quantity;
   final ResultOr<FirebaseFailure> updateCardProductFailureOrSuccess;
   final ResultOr<FirebaseFailure> removeCardProductFailureOrSuccess;
+  final ResultOr<FirebaseFailure> createOrderFailureOrSuccess;
 
   CartState copyWith({
-    ProductModel? product,
-    int? quantity,
     ResultOr<FirebaseFailure>? updateCardProductFailureOrSuccess,
     ResultOr<FirebaseFailure>? removeCardProductFailureOrSuccess,
+    ResultOr<FirebaseFailure>? createOrderFailureOrSuccess,
   }) {
     return CartState(
-      product: product ?? this.product,
-      quantity: quantity ?? this.quantity,
       updateCardProductFailureOrSuccess: updateCardProductFailureOrSuccess ??
           this.updateCardProductFailureOrSuccess,
       removeCardProductFailureOrSuccess: removeCardProductFailureOrSuccess ??
           this.removeCardProductFailureOrSuccess,
+      createOrderFailureOrSuccess:
+          createOrderFailureOrSuccess ?? this.createOrderFailureOrSuccess,
     );
   }
 
   @override
   String toString() {
     return '''CartState(
-      product: $product,
-      quantity: $quantity,
       updateCardProductFailureOrSuccess: $updateCardProductFailureOrSuccess,
       removeCardProductFailureOrSuccess: $removeCardProductFailureOrSuccess,
+      createOrderFailureOrSuccess: $createOrderFailureOrSuccess,
     )''';
   }
 
@@ -51,19 +46,17 @@ class CartState {
     if (identical(this, other)) return true;
 
     return other is CartState &&
-        other.product == product &&
-        other.quantity == quantity &&
         updateCardProductFailureOrSuccess ==
             other.updateCardProductFailureOrSuccess &&
         removeCardProductFailureOrSuccess ==
-            other.removeCardProductFailureOrSuccess;
+            other.removeCardProductFailureOrSuccess &&
+        createOrderFailureOrSuccess == other.createOrderFailureOrSuccess;
   }
 
   @override
   int get hashCode {
-    return product.hashCode ^
-        quantity.hashCode ^
-        updateCardProductFailureOrSuccess.hashCode ^
-        removeCardProductFailureOrSuccess.hashCode;
+    return updateCardProductFailureOrSuccess.hashCode ^
+        removeCardProductFailureOrSuccess.hashCode ^
+        createOrderFailureOrSuccess.hashCode;
   }
 }
