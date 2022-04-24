@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../shared/application/providers.dart';
+import '../../../shared/domain/types/category_product_type.dart';
 import '../../../shared/infrastructure/data/categories_data.dart';
 import '../widgets/item_category.dart';
 
@@ -11,7 +12,7 @@ class ProductsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisSize: MainAxisSize.max,
       children: [
         const Padding(
@@ -27,42 +28,42 @@ class ProductsView extends StatelessWidget {
         Consumer(builder: (_, ref, __) {
           final categorySelected = ref.watch(
               productsController.select((value) => value.categorySelected));
-          return SizedBox(
-            height: 130,
-            child: ListView.builder(
-              clipBehavior: Clip.none,
-              physics: const BouncingScrollPhysics(),
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: categoriesApp.length,
-              itemBuilder: (context, index) {
-                final category = categoriesApp[index];
-                return ItemCategory(
+          return Wrap(
+            clipBehavior: Clip.none,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            runAlignment: WrapAlignment.spaceEvenly,
+            alignment: WrapAlignment.spaceEvenly,
+            runSpacing: 8,
+            spacing: 0,
+            children: [
+              for (final category in categoriesApp)
+                ItemCategory(
                   category: category,
-                  index: index,
                   isSelected: categorySelected.toString() == category.id,
                   onTap: () => ref
                       .read(productsController.notifier)
-                      .categoryChanged(index),
+                      .categoryChanged(
+                          CategoryProductType.fromString(category.id)),
+                ),
+            ],
+          );
+        }),
+        const SizedBox(height: 16.0),
+        Consumer(builder: (_, ref, __) {
+          return Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: 12,
+              itemBuilder: (context, index) {
+                return Container(
+                  height: 100,
+                  width: 200,
+                  color: index % 2 != 0 ? Colors.blue : Colors.red,
                 );
               },
             ),
           );
         }),
-        const SizedBox(height: 16.0),
-        Expanded(
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: 12,
-            itemBuilder: (context, index) {
-              return Container(
-                height: 100,
-                width: 200,
-                color: Colors.blue,
-              );
-            },
-          ),
-        ),
       ],
     );
   }

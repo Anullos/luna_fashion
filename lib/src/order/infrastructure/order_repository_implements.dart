@@ -18,7 +18,7 @@ class OrderRepositoryImplements extends OrderRepositoryInterface {
     final orders = _firebaseFirestore
         .collection(ordersCollection)
         .where('userId', isEqualTo: _firebaseAuth.currentUser!.uid)
-        .orderBy('atCreated', descending: true)
+        .orderBy('atCreated', descending: false)
         .snapshots()
         .map((snapshot) => snapshot.docs.map((doc) {
               final data = doc.data();

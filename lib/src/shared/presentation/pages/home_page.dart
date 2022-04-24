@@ -64,6 +64,7 @@ class _HomePageState extends ConsumerState<HomePage> {
   @override
   Widget build(BuildContext context) {
     final user = ref.watch(userController).user;
+    ref.watch(ordersList);
     return Scaffold(
       body: SafeArea(
         child: Stack(

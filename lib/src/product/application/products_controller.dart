@@ -14,32 +14,32 @@ class ProductsController extends StateNotifier<ProductsState> {
 
   Future<void> signIn() async {}
 
-  void categoryChanged(int index) {
-    CategoryProductType category;
-    switch (index) {
-      case 0:
-        category = CategoryProductType.pants();
-        break;
-      case 1:
-        category = CategoryProductType.shoes();
-        break;
-      case 2:
-        category = CategoryProductType.tshirts();
-        break;
-      case 3:
-        category = CategoryProductType.sweatshirts();
-        break;
-      case 4:
-        category = CategoryProductType.caps();
-        break;
-      case 5:
-        category = CategoryProductType.dresses();
-        break;
-      default:
-        category = CategoryProductType.pants();
-        break;
-    }
-    state = state.copyWith(categorySelected: category);
+  void categoryChanged(CategoryProductType value) {
+    // CategoryProductType category;
+    // switch (index) {
+    //   case CategoryProductType.pants().toString():
+    //     category = CategoryProductType.pants();
+    //     break;
+    //   case 1:
+    //     category = CategoryProductType.shoes();
+    //     break;
+    //   case 2:
+    //     category = CategoryProductType.tshirts();
+    //     break;
+    //   case 3:
+    //     category = CategoryProductType.sweatshirts();
+    //     break;
+    //   case 4:
+    //     category = CategoryProductType.caps();
+    //     break;
+    //   case 5:
+    //     category = CategoryProductType.dresses();
+    //     break;
+    //   default:
+    //     category = CategoryProductType.pants();
+    //     break;
+    // }
+    state = state.copyWith(categorySelected: value);
   }
 
   Future<void> getProducts() async {
