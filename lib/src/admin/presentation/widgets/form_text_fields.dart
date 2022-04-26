@@ -39,7 +39,7 @@ class DescriptionTextField extends ConsumerWidget {
     final description =
         ref.watch(addProductController.select((value) => value.description));
     return TextFieldWidget(
-      keyboardType: TextInputType.name,
+      keyboardType: TextInputType.text,
       headerText: S.of(context).description,
       showError: ref.watch(addProductController).showErrors,
       onChanged: ref.read(addProductController.notifier).descriptionChanged,

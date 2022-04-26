@@ -10,7 +10,7 @@ extension NameFailureTranslation on NameFailure {
     }
 
     if (this is NameFailureInvalid) {
-      return S.of(context).invalidEmail;
+      return S.of(context).invalidFullName;
     }
 
     if (this is NameFailureTooLong) {

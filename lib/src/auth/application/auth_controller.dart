@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../shared/domain/models/user_model.dart';
@@ -23,8 +24,8 @@ class AuthController extends StateNotifier<AuthState> {
 
   Future<void> initUser(User? user) async {
     if (user != null) {
+      debugPrint(user.uid);
       final userModel = await _repository.getUserById(user.uid);
-
       if (userModel != null) {
         _userController.loadUser();
         state = AuthState.authenticated(userModel);
