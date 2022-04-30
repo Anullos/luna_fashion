@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,6 +14,7 @@ import '../../product/application/products_controller.dart';
 import '../../product/infratructure/cart_repository_implements.dart';
 import '../../product/infratructure/products_repository_implements.dart';
 import '../domain/failures/firebase_failure.dart';
+import '../infrastructure/http_client.dart';
 import '../presentation/utils/result_or.dart';
 import 'home_controller.dart';
 import '../../user/infrastructure/user_repository_implements.dart';
@@ -30,6 +32,8 @@ final firebaseAuth = Provider((_) => FirebaseAuth.instance);
 final firebaseStore = Provider((_) => FirebaseFirestore.instance);
 
 final firebaseStorage = Provider((_) => FirebaseStorage.instance);
+
+final dioInstanceUser = Dio(baseOptions)..interceptors.add(AuthInterceptor());
 
 // Authtentication
 final authRepositoryProvider = Provider(
@@ -109,6 +113,7 @@ final productsRepositoryProvider = Provider(
 final cartRepositoryProvider = Provider.autoDispose(
   (ref) => CartRepositoryImplements(
     ref.watch(firebaseStore),
+    dioInstanceUser,
   ),
 );
 

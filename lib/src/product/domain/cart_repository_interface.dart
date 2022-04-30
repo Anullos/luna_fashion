@@ -15,4 +15,6 @@ abstract class CartRepositoryInterface {
 
   Future<ResultOr<FirebaseFailure>> createOrder(
       List<ProductOrderModel> products, UserModel user);
+
+  Future<void> sendNotification(int productsLength, UserModel user);
 }

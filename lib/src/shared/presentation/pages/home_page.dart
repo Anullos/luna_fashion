@@ -5,6 +5,7 @@ import '../../../admin/presentation/pages/home_admin_view.dart';
 import '../../../admin/presentation/pages/orders_admin_view.dart';
 import '../../../admin/presentation/pages/products_admin_view.dart';
 import '../../../home/presentation/pages/home_view.dart';
+import '../../../notifications/services/notification_push_service.dart';
 import '../../../order/presentation/pages/order_view.dart';
 import '../../../product/presentation/pages/products_view.dart';
 import '../../application/providers.dart';
@@ -67,6 +68,7 @@ class _HomePageState extends ConsumerState<HomePage> {
     final user = ref.watch(userController).user;
     if (user != null &&
         user.role.toString() == UserRoleType.admin().toString()) {
+      PushNotificationService.initialize();
       ref.watch(ordersAdminStream);
       ref.watch(productsList);
     }

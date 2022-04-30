@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dio/dio.dart';
 
 import '../../order/domain/models/product_order_model.dart';
 import '../../order/domain/types/order_status_type.dart';
@@ -14,8 +15,9 @@ import '../domain/cart_repository_interface.dart';
 
 class CartRepositoryImplements extends CartRepositoryInterface {
   final FirebaseFirestore _firebaseFirestore;
+  final Dio _httpClient;
 
-  CartRepositoryImplements(this._firebaseFirestore);
+  CartRepositoryImplements(this._firebaseFirestore, this._httpClient);
 
   @override
   Future<ResultOr<FirebaseFailure>> addCartProduct(
@@ -117,10 +119,38 @@ class CartRepositoryImplements extends CartRepositoryInterface {
         'currentCart': [],
       }, SetOptions(merge: true));
 
+      await sendNotification(products.length, user);
+
       return ResultOr.success();
     } catch (e, f) {
       log('Error: $e, Stack: $f');
       return ResultOr.failure(FirebaseFailure.unknownError());
+    }
+  }
+
+  @override
+  Future<void> sendNotification(int productsLength, UserModel user) async {
+    try {
+      final body = {
+        'notification': {
+          'title': 'Nuevo pedido',
+          'body':
+              '${user.fullName} a realizado un pedido con $productsLength produtos',
+        },
+        'priority': 'high',
+        'data': {
+          'click_action': 'FLUTTER_NOTIFICATION_CLICK',
+          'id': '1',
+          'status': 'done',
+        },
+        'to': '/topics/ORDERS',
+      };
+
+      final response = await _httpClient.post('', data: body);
+
+      log('Response: $response');
+    } catch (e, f) {
+      log('Error: $e, Stack: $f');
     }
   }
 }
