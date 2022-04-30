@@ -56,5 +56,7 @@
   "resume": "Resume",
   "sendOrder": "Send order",
   "haveNotItemsInCart": "You have not items in your shopping cart",
-  "orderSend": "Pedido enviado"
+  "orderSend": "Pedido enviado",
+  "orderDetails": "Order details",
+  "status": "Status: {status}"
 }

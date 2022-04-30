@@ -2,9 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../shared/infrastructure/collections.dart';
 import '../../shared/infrastructure/dto/product_dto.dart';
-import '../../shared/presentation/utils/resource.dart';
 import '../../shared/domain/models/product_model.dart';
-import '../../shared/domain/failures/firebase_failure.dart';
 import '../domain/products_repository_interface.dart';
 
 class ProductsRepositoryImplements extends ProductsRepositoryInterface {
@@ -13,17 +11,19 @@ class ProductsRepositoryImplements extends ProductsRepositoryInterface {
   ProductsRepositoryImplements(this._firebaseFirestore);
 
   @override
-  Future<Resource<FirebaseFailure, List<ProductModel>>> getProducts() async {
+  Stream<List<ProductModel>> getProducts() async* {
     try {
-      final data = await _firebaseFirestore.collection(productCollection).get();
+      final snapshots =
+          _firebaseFirestore.collection(productCollection).snapshots();
 
-      final products = data.docs
-          .map((doc) => ProductDto.fromMap(doc.data()).toDomain())
-          .toList();
-
-      return Resource.success(products);
+      yield* snapshots.map((snapshot) {
+        final list = snapshot.docs
+            .map((e) => ProductDto.fromMap(e.data()).toDomain())
+            .toList();
+        return list;
+      });
     } catch (e) {
-      return Resource.failure(FirebaseFailure.unknownError());
+      yield [];
     }
   }
 }

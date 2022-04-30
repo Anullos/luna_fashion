@@ -20,6 +20,8 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'es';
 
+  static String m0(status) => "Estado: ${status}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "add": MessageLookupByLibrary.simpleMessage("Añadir"),
@@ -69,6 +71,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "oldPrice": MessageLookupByLibrary.simpleMessage("Precio anterior"),
         "operationNotAllowed":
             MessageLookupByLibrary.simpleMessage("Operación no permitida"),
+        "orderDetails":
+            MessageLookupByLibrary.simpleMessage("Detalles del pedido"),
         "orderSend": MessageLookupByLibrary.simpleMessage("Pedido enviado"),
         "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
         "passwordConfirmation":
@@ -89,6 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Error en el servidor"),
         "signOut": MessageLookupByLibrary.simpleMessage("Cerrar sesión"),
         "signup": MessageLookupByLibrary.simpleMessage("Registrar"),
+        "status": m0,
         "statusOrder":
             MessageLookupByLibrary.simpleMessage("Estado del pedido: "),
         "support": MessageLookupByLibrary.simpleMessage("Soporte"),

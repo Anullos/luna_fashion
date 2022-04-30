@@ -109,11 +109,18 @@ final cartRepositoryProvider = Provider.autoDispose(
   ),
 );
 
+final productsStream = StreamProvider.autoDispose(
+  (ref) async* {
+    final repository = ref.watch(productsRepositoryProvider);
+    final response = repository.getProducts();
+    yield* response;
+  },
+);
+
 final productsController =
     StateNotifierProvider<ProductsController, ProductsState>(
   (ref) {
-    final repository = ref.watch(productsRepositoryProvider);
-    return ProductsController(repository);
+    return ProductsController();
   },
 );
 

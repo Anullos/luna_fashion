@@ -76,7 +76,7 @@ class ProductDetailsPage extends StatelessWidget {
                 children: [
                   Hero(
                     tag: 'hero_image_${product.name}',
-                    child: Image.asset(
+                    child: Image.network(
                       product.imageUrl,
                       height: MediaQuery.of(context).size.width / 1.2,
                     ),

@@ -115,7 +115,7 @@ class ItemTopProduct extends StatelessWidget {
                 transform: transformProduct,
                 child: Hero(
                   tag: 'hero_image_${product.name}',
-                  child: Image.asset(
+                  child: Image.network(
                     product.imageUrl,
                     height: size.width / 2.5,
                   ),

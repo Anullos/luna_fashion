@@ -629,6 +629,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Detalles del pedido`
+  String get orderDetails {
+    return Intl.message(
+      'Detalles del pedido',
+      name: 'orderDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Estado: {status}`
+  String status(Object status) {
+    return Intl.message(
+      'Estado: $status',
+      name: 'status',
+      desc: '',
+      args: [status],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

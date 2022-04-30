@@ -56,5 +56,7 @@
   "resume": "Resumen",
   "sendOrder": "Enviar pedido",
   "haveNotItemsInCart": "No tienes productos en el carrito",
-  "orderSend": "Pedido enviado"
+  "orderSend": "Pedido enviado",
+  "orderDetails": "Detalles del pedido",
+  "status": "Estado: {status}"
 }

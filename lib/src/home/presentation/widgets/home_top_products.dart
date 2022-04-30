@@ -1,10 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vector_math/vector_math.dart' as vector;
 
 import '../../../../routes.dart';
-import '../../../shared/infrastructure/data/products_data.dart';
+import '../../../shared/application/providers.dart';
 import 'item_top_product.dart';
 
 class HomeTopProducts extends StatefulWidget {
@@ -62,37 +63,48 @@ class _HomeTopProductsState extends State<HomeTopProducts> {
             right: 0,
             top: 0,
             height: 380,
-            child: PageView.builder(
-              controller: _pageController,
-              itemCount: productsListData.length,
-              itemBuilder: (context, index) {
-                final product = productsListData[index];
+            child: Consumer(builder: (_, ref, __) {
+              final stream = ref.watch(productsStream);
+              return stream.when(
+                data: (products) {
+                  return PageView.builder(
+                    controller: _pageController,
+                    itemCount: products.length,
+                    itemBuilder: (context, index) {
+                      final product = products[index];
 
-                final t = (index - _pageNotifier.value);
-                final rotationY = lerpDouble(0, 90, t)!;
-                final translationX = lerpDouble(0, -50, t);
-                final scale = lerpDouble(0, -0.2, t)!;
-                final translationXShoes = lerpDouble(0, 150, t);
-                final rotationShoe = lerpDouble(0, -45, t)!;
-                final transform = Matrix4.identity();
-                transform.translate(translationX);
-                transform.setEntry(3, 2, 0.001);
-                transform.scale(1 - scale);
-                transform.rotateY(vector.radians(rotationY));
+                      final t = (index - _pageNotifier.value);
+                      final rotationY = lerpDouble(0, 90, t)!;
+                      final translationX = lerpDouble(0, -50, t);
+                      final scale = lerpDouble(0, -0.2, t)!;
+                      final translationXShoes = lerpDouble(0, 150, t);
+                      final rotationShoe = lerpDouble(0, -45, t)!;
+                      final transform = Matrix4.identity();
+                      transform.translate(translationX);
+                      transform.setEntry(3, 2, 0.001);
+                      transform.scale(1 - scale);
+                      transform.rotateY(vector.radians(rotationY));
 
-                final transformProduct = Matrix4.identity();
-                transformProduct.translate(translationXShoes);
-                transformProduct.rotateZ(vector.radians(rotationShoe));
+                      final transformProduct = Matrix4.identity();
+                      transformProduct.translate(translationXShoes);
+                      transformProduct.rotateZ(vector.radians(rotationShoe));
 
-                return ItemTopProduct(
-                  product: product,
-                  transform: transform,
-                  transformProduct: transformProduct,
-                  onTap: () => Navigator.pushNamed(context, productRoute,
-                      arguments: product),
-                );
-              },
-            ),
+                      return ItemTopProduct(
+                        product: product,
+                        transform: transform,
+                        transformProduct: transformProduct,
+                        onTap: () => Navigator.pushNamed(context, productRoute,
+                            arguments: product),
+                      );
+                    },
+                  );
+                },
+                error: (e, f) => const Text('Error con firebase'),
+                loading: () => const Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            }),
           ),
         ],
       ),

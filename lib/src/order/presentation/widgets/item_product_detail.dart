@@ -1,21 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../order/domain/models/product_order_model.dart';
 import '../../../shared/presentation/l10n/generated/l10n.dart';
 
-class CartItem extends StatelessWidget {
+class ItemProductDetail extends StatelessWidget {
   final ProductOrderModel productItem;
-  final VoidCallback onDelete;
-  final VoidCallback lessQuantity;
-  final VoidCallback moreQuantity;
-  const CartItem(
-      {Key? key,
-      required this.productItem,
-      required this.onDelete,
-      required this.lessQuantity,
-      required this.moreQuantity})
-      : super(key: key);
+  const ItemProductDetail({
+    Key? key,
+    required this.productItem,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -63,15 +56,6 @@ class CartItem extends StatelessWidget {
                               ],
                             ),
                           ),
-                          CupertinoButton(
-                            padding: const EdgeInsets.all(0.0),
-                            onPressed: onDelete,
-                            child: const Icon(
-                              Icons.delete,
-                              color: Colors.grey,
-                              size: 35,
-                            ),
-                          ),
                         ],
                       ),
                     ),
@@ -82,14 +66,6 @@ class CartItem extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        CupertinoButton(
-                          padding: const EdgeInsets.all(0),
-                          child: const Icon(
-                            Icons.remove,
-                            color: Colors.red,
-                          ),
-                          onPressed: lessQuantity,
-                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 5.0),
                           child: RichText(
@@ -109,11 +85,6 @@ class CartItem extends StatelessWidget {
                               ],
                             ),
                           ),
-                        ),
-                        CupertinoButton(
-                          padding: const EdgeInsets.all(0),
-                          child: const Icon(Icons.add),
-                          onPressed: moreQuantity,
                         ),
                       ],
                     ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../routes.dart';
 import '../../../shared/application/providers.dart';
 import '../widgets/order_card_item.dart';
 
@@ -16,7 +17,13 @@ class OrderView extends ConsumerWidget {
           child: Column(
             children: [
               const SizedBox(height: 20),
-              const Text('Lista de pedidos'),
+              const Text(
+                'Lista de pedidos',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               orders.isNotEmpty
                   ? Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -27,7 +34,12 @@ class OrderView extends ConsumerWidget {
                         reverse: true,
                         padding: const EdgeInsets.only(bottom: 20.0, top: 10.0),
                         itemBuilder: (context, index) {
-                          return OrderCardItem(order: orders[index]);
+                          return InkWell(
+                            onTap: () => Navigator.pushNamed(
+                                context, orderDetailsRoute,
+                                arguments: orders[index]),
+                            child: OrderCardItem(order: orders[index]),
+                          );
                         },
                       ),
                     )
