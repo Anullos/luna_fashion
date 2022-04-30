@@ -65,5 +65,8 @@
   "orderList": "Order list",
   "goToPickUp": "Go to pick up",
   "goToRejected": "Go to rejected",
-  "goToCompleted": "Go to completed"
+  "goToCompleted": "Go to completed",
+  "seeAllProducts": "See all products",
+  "wellcomeTo": "Wellcome to ",
+  "topProductsOfWeek": "Top products of the week"
 }

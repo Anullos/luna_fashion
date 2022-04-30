@@ -65,5 +65,8 @@
   "orderList": "Lista de pedidos",
   "goToPickUp": "Pasar a listo para recoger",
   "goToRejected": "Pasar a rechazado",
-  "goToCompleted": "Pasar a completado"
+  "goToCompleted": "Pasar a completado",
+  "seeAllProducts": "Ver todos los productos",
+  "wellcomeTo": "Bienvenido a ",
+  "topProductsOfWeek": "Productos destacados de la semana"
 }

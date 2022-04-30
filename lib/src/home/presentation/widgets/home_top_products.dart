@@ -6,6 +6,7 @@ import 'package:vector_math/vector_math.dart' as vector;
 
 import '../../../../routes.dart';
 import '../../../shared/application/providers.dart';
+import '../../../shared/presentation/l10n/generated/l10n.dart';
 import 'item_top_product.dart';
 
 class HomeTopProducts extends StatefulWidget {
@@ -47,12 +48,12 @@ class _HomeTopProductsState extends State<HomeTopProducts> {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          const Positioned(
+          Positioned(
             top: 0,
             left: 20,
             child: Text(
-              'Top Products of the Week',
-              style: TextStyle(
+              S.of(context).topProductsOfWeek,
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),

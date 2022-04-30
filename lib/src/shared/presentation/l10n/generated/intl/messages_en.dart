@@ -92,6 +92,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "rejected": MessageLookupByLibrary.simpleMessage("Rejected"),
         "resume": MessageLookupByLibrary.simpleMessage("Resume"),
+        "seeAllProducts":
+            MessageLookupByLibrary.simpleMessage("See all products"),
         "sendOrder": MessageLookupByLibrary.simpleMessage("Send order"),
         "serverError": MessageLookupByLibrary.simpleMessage("Server error"),
         "serviceTecnic":
@@ -108,11 +110,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "There is not order in this status"),
         "tooLong": MessageLookupByLibrary.simpleMessage("Too long"),
         "tooShot": MessageLookupByLibrary.simpleMessage("Too short"),
+        "topProductsOfWeek":
+            MessageLookupByLibrary.simpleMessage("Top products of the week"),
         "total": MessageLookupByLibrary.simpleMessage("Total: "),
         "totalOfProducts":
             MessageLookupByLibrary.simpleMessage("Total of products: "),
         "totalToPay": MessageLookupByLibrary.simpleMessage("Total to pay: "),
         "unknownError": MessageLookupByLibrary.simpleMessage("Unknown error"),
-        "weakPassword": MessageLookupByLibrary.simpleMessage("Weak password")
+        "weakPassword": MessageLookupByLibrary.simpleMessage("Weak password"),
+        "wellcomeTo": MessageLookupByLibrary.simpleMessage("Wellcome to ")
       };
 }

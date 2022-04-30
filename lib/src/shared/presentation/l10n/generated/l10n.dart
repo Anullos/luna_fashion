@@ -719,6 +719,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Ver todos los productos`
+  String get seeAllProducts {
+    return Intl.message(
+      'Ver todos los productos',
+      name: 'seeAllProducts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bienvenido a `
+  String get wellcomeTo {
+    return Intl.message(
+      'Bienvenido a ',
+      name: 'wellcomeTo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Productos destacados de la semana`
+  String get topProductsOfWeek {
+    return Intl.message(
+      'Productos destacados de la semana',
+      name: 'topProductsOfWeek',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

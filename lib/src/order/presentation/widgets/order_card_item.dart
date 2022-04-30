@@ -30,6 +30,14 @@ class OrderCardItem extends StatelessWidget {
               children: [
                 Text(S.of(context).statusOrder),
                 Text(order.status.toString()),
+                const Spacer(),
+                const Tooltip(
+                  message: 'Dirección: Calle San Rafael 14 \nTlf: 666666666',
+                  child: Icon(
+                    Icons.info_outline,
+                    color: Colors.white,
+                  ),
+                ),
               ],
             ),
             Padding(

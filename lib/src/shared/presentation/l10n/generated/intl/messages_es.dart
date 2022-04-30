@@ -96,6 +96,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "register": MessageLookupByLibrary.simpleMessage("Registrarse"),
         "rejected": MessageLookupByLibrary.simpleMessage("Rechazado"),
         "resume": MessageLookupByLibrary.simpleMessage("Resumen"),
+        "seeAllProducts":
+            MessageLookupByLibrary.simpleMessage("Ver todos los productos"),
         "sendOrder": MessageLookupByLibrary.simpleMessage("Enviar pedido"),
         "serverError":
             MessageLookupByLibrary.simpleMessage("Error en el servidor"),
@@ -114,12 +116,16 @@ class MessageLookup extends MessageLookupByLibrary {
             "No hay pedidos en este estado"),
         "tooLong": MessageLookupByLibrary.simpleMessage("Muy largo"),
         "tooShot": MessageLookupByLibrary.simpleMessage("Muy corto"),
+        "topProductsOfWeek": MessageLookupByLibrary.simpleMessage(
+            "Productos destacados de la semana"),
         "total": MessageLookupByLibrary.simpleMessage("Total: "),
         "totalOfProducts":
             MessageLookupByLibrary.simpleMessage("Total de productos: "),
         "totalToPay": MessageLookupByLibrary.simpleMessage("Total a pagar: "),
         "unknownError":
             MessageLookupByLibrary.simpleMessage("Error desconocido"),
-        "weakPassword": MessageLookupByLibrary.simpleMessage("Contraseña débil")
+        "weakPassword":
+            MessageLookupByLibrary.simpleMessage("Contraseña débil"),
+        "wellcomeTo": MessageLookupByLibrary.simpleMessage("Bienvenido a ")
       };
 }
