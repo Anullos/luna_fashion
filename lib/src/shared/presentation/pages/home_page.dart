@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../admin/presentation/pages/orders_view.dart';
+import '../../../admin/presentation/pages/home_admin_view.dart';
+import '../../../admin/presentation/pages/orders_admin_view.dart';
 import '../../../admin/presentation/pages/products_admin_view.dart';
 import '../../../home/presentation/pages/home_view.dart';
 import '../../../order/presentation/pages/order_view.dart';
@@ -64,8 +65,16 @@ class _HomePageState extends ConsumerState<HomePage> {
   @override
   Widget build(BuildContext context) {
     final user = ref.watch(userController).user;
-    ref.watch(ordersList);
-    ref.watch(productsStream);
+    if (user != null &&
+        user.role.toString() == UserRoleType.admin().toString()) {
+      ref.watch(ordersAdminStream);
+      ref.watch(productsList);
+    }
+    if (user != null &&
+        user.role.toString() == UserRoleType.user().toString()) {
+      ref.watch(ordersList);
+      ref.watch(productsStream);
+    }
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -121,8 +130,8 @@ final userHome = [
 ];
 
 final adminHome = [
-  const HomeView(),
-  const OrdersView(),
+  const HomeAdminView(),
+  const OrdersAdminView(),
   const ProductsAdminView(),
   const ProfileView(),
 ];

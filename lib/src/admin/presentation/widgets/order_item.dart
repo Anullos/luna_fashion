@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../../../order/domain/models/order_model.dart';
+import '../../../order/presentation/extensions/order_status_extension.dart';
 import '../../../shared/presentation/l10n/generated/l10n.dart';
-import '../../domain/models/order_model.dart';
-import '../extensions/order_status_extension.dart';
 
-class OrderCardItem extends StatelessWidget {
+class OrderItem extends StatelessWidget {
   final OrderModel order;
-  const OrderCardItem({Key? key, required this.order}) : super(key: key);
+  const OrderItem({Key? key, required this.order}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +28,8 @@ class OrderCardItem extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text(S.of(context).statusOrder),
-                Text(order.status.toString()),
+                Text(S.of(context).realiceBy),
+                Text(order.userFullName),
               ],
             ),
             Padding(

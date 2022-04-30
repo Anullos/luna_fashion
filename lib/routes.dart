@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'src/admin/presentation/pages/add_product.dart';
+import 'src/admin/presentation/pages/order_detail_admin_page.dart';
 import 'src/auth/presentation/pages/onboarding_page.dart';
 import 'src/auth/presentation/pages/signup_page.dart';
 import 'src/auth/presentation/pages/login_page.dart';
@@ -24,6 +25,7 @@ const String homeRoute = '/home';
 const String productRoute = '/product';
 const String cartRoute = '/cart';
 const String orderDetailsRoute = '/order-details';
+const String orderDetailsAdminRoute = '/order-admin-details';
 // zone user
 const String editProfileRoute = '/edit-profile';
 const String changePasswordRoute = '/change-password';
@@ -96,6 +98,15 @@ class AppRouter {
           pageBuilder: (_, animation, __) => FadeTransition(
             opacity: animation,
             child: OrderDetailsPage(order: settings.arguments as OrderModel),
+          ),
+        );
+      case orderDetailsAdminRoute:
+        return PageRouteBuilder(
+          transitionDuration: const Duration(milliseconds: 750),
+          pageBuilder: (_, animation, __) => FadeTransition(
+            opacity: animation,
+            child:
+                OrderDetailsAdminPage(order: settings.arguments as OrderModel),
           ),
         );
       // default

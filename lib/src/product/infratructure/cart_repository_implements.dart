@@ -99,6 +99,7 @@ class CartRepositoryImplements extends CartRepositoryInterface {
       final documentReference =
           await _firebaseFirestore.collection(ordersCollection).add({
         'userId': user.id,
+        'userFullName': user.fullName,
         'products': data,
         'status': OrderStatusType.pending().toString(),
         'atCreated': DateTime.now().millisecondsSinceEpoch,

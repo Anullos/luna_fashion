@@ -42,6 +42,7 @@
   "productAdded": "Product added",
   "imageIsRequired": "Image is required",
   "haveNotPlacedOrder": "You have not placed any order",
+  "thereNotOrderStatus": "There is not order in this status",
   "pending": "Pending",
   "pickUp": "Pick up",
   "rejected": "Rejected",
@@ -58,5 +59,11 @@
   "haveNotItemsInCart": "You have not items in your shopping cart",
   "orderSend": "Pedido enviado",
   "orderDetails": "Order details",
-  "status": "Status: {status}"
+  "status": "Status: {status}",
+  "serviceTecnic": "Technical service:",
+  "realiceBy": "Realized by:",
+  "orderList": "Order list",
+  "goToPickUp": "Go to pick up",
+  "goToRejected": "Go to rejected",
+  "goToCompleted": "Go to completed"
 }

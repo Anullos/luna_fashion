@@ -480,6 +480,16 @@ class S {
     );
   }
 
+  /// `No hay pedidos en este estado`
+  String get thereNotOrderStatus {
+    return Intl.message(
+      'No hay pedidos en este estado',
+      name: 'thereNotOrderStatus',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Pendiente`
   String get pending {
     return Intl.message(
@@ -647,6 +657,66 @@ class S {
       name: 'status',
       desc: '',
       args: [status],
+    );
+  }
+
+  /// `Servicio Técnico:`
+  String get serviceTecnic {
+    return Intl.message(
+      'Servicio Técnico:',
+      name: 'serviceTecnic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Realizado por:`
+  String get realiceBy {
+    return Intl.message(
+      'Realizado por:',
+      name: 'realiceBy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lista de pedidos`
+  String get orderList {
+    return Intl.message(
+      'Lista de pedidos',
+      name: 'orderList',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pasar a listo para recoger`
+  String get goToPickUp {
+    return Intl.message(
+      'Pasar a listo para recoger',
+      name: 'goToPickUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pasar a rechazado`
+  String get goToRejected {
+    return Intl.message(
+      'Pasar a rechazado',
+      name: 'goToRejected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pasar a completado`
+  String get goToCompleted {
+    return Intl.message(
+      'Pasar a completado',
+      name: 'goToCompleted',
+      desc: '',
+      args: [],
     );
   }
 }

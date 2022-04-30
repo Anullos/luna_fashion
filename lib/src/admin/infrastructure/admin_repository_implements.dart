@@ -3,6 +3,9 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
+import '../../order/domain/models/order_model.dart';
+import '../../order/domain/types/order_status_type.dart';
+import '../../order/infrastructure/dto/order_dto.dart';
 import '../../shared/domain/models/product_model.dart';
 import '../../shared/infrastructure/collections.dart';
 import '../../shared/infrastructure/dto/product_dto.dart';
@@ -66,12 +69,10 @@ class AdminRepositoryImplements extends AdminRepositoryInterface {
     try {
       final snapshots =
           _firebaseFirestore.collection(productCollection).snapshots();
-
       yield* snapshots.map((snapshot) {
         final products = snapshot.docs
             .map((e) => ProductDto.fromMap(e.data()).toDomain())
             .toList();
-
         return products;
       });
     } catch (e) {
@@ -91,6 +92,39 @@ class AdminRepositoryImplements extends AdminRepositoryInterface {
       return url;
     } on FirebaseException catch (e, _) {
       return null;
+    }
+  }
+
+  @override
+  Stream<List<OrderModel>> getOrders() async* {
+    try {
+      final snapshots =
+          _firebaseFirestore.collection(ordersCollection).snapshots();
+      yield* snapshots.map((snapshot) {
+        final orders = snapshot.docs
+            .map((e) => OrderDto.fromMap(e.data()).toDomain())
+            .toList();
+        return orders;
+      });
+    } catch (e) {
+      yield [];
+    }
+  }
+
+  @override
+  Future<ResultOr<FirebaseFailure>> updateStatusOrder(
+      {required String orderId, required OrderStatusType status}) async {
+    try {
+      await _firebaseFirestore
+          .collection(ordersCollection)
+          .doc(orderId)
+          .update({
+        'status': status.toString(),
+      });
+
+      return ResultOr.success();
+    } catch (e, _) {
+      return ResultOr.failure(FirebaseFailure.unknownError());
     }
   }
 }

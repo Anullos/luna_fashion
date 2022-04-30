@@ -46,6 +46,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot password?"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full name"),
+        "goToCompleted":
+            MessageLookupByLibrary.simpleMessage("Go to completed"),
+        "goToPickUp": MessageLookupByLibrary.simpleMessage("Go to pick up"),
+        "goToRejected": MessageLookupByLibrary.simpleMessage("Go to rejected"),
         "haveNotItemsInCart": MessageLookupByLibrary.simpleMessage(
             "You have not items in your shopping cart"),
         "haveNotPlacedOrder": MessageLookupByLibrary.simpleMessage(
@@ -72,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "operationNotAllowed":
             MessageLookupByLibrary.simpleMessage("Operation not allowed"),
         "orderDetails": MessageLookupByLibrary.simpleMessage("Order details"),
+        "orderList": MessageLookupByLibrary.simpleMessage("Order list"),
         "orderSend": MessageLookupByLibrary.simpleMessage("Pedido enviado"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordConfirmation":
@@ -83,11 +88,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "profileInfoCard": MessageLookupByLibrary.simpleMessage(
             "This application is a demo for the Cesur DAM course. This application has no commercial purpose and is free to use. It has been made by Daniel Aranda Maestro"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity: "),
+        "realiceBy": MessageLookupByLibrary.simpleMessage("Realized by:"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "rejected": MessageLookupByLibrary.simpleMessage("Rejected"),
         "resume": MessageLookupByLibrary.simpleMessage("Resume"),
         "sendOrder": MessageLookupByLibrary.simpleMessage("Send order"),
         "serverError": MessageLookupByLibrary.simpleMessage("Server error"),
+        "serviceTecnic":
+            MessageLookupByLibrary.simpleMessage("Technical service:"),
         "signOut": MessageLookupByLibrary.simpleMessage("Sign out"),
         "signup": MessageLookupByLibrary.simpleMessage("Sign up"),
         "status": m0,
@@ -96,6 +104,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "takeAPhoto": MessageLookupByLibrary.simpleMessage("Take a photo"),
         "termAndConditions":
             MessageLookupByLibrary.simpleMessage("Terms and conditions"),
+        "thereNotOrderStatus": MessageLookupByLibrary.simpleMessage(
+            "There is not order in this status"),
         "tooLong": MessageLookupByLibrary.simpleMessage("Too long"),
         "tooShot": MessageLookupByLibrary.simpleMessage("Too short"),
         "total": MessageLookupByLibrary.simpleMessage("Total: "),

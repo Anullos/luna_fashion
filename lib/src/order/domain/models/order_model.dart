@@ -6,6 +6,7 @@ import 'product_order_model.dart';
 class OrderModel {
   final String id;
   final String userId;
+  final String userFullName;
   final List<ProductOrderModel> products;
   final OrderStatusType status;
   final int atCreated;
@@ -13,6 +14,7 @@ class OrderModel {
   OrderModel({
     required this.id,
     required this.userId,
+    required this.userFullName,
     required this.products,
     required this.status,
     required this.atCreated,
@@ -22,6 +24,7 @@ class OrderModel {
   OrderModel copyWith({
     String? id,
     String? userId,
+    String? userFullName,
     List<ProductOrderModel>? products,
     OrderStatusType? status,
     int? atCreated,
@@ -30,6 +33,7 @@ class OrderModel {
     return OrderModel(
       id: id ?? this.id,
       userId: userId ?? this.userId,
+      userFullName: userFullName ?? this.userFullName,
       products: products ?? this.products,
       status: status ?? this.status,
       atCreated: atCreated ?? this.atCreated,
@@ -49,6 +53,7 @@ class OrderModel {
     return other is OrderModel &&
         other.id == id &&
         other.userId == userId &&
+        other.userFullName == userFullName &&
         listEquals(other.products, products) &&
         other.status == status &&
         other.atCreated == atCreated &&
@@ -59,6 +64,7 @@ class OrderModel {
   int get hashCode {
     return id.hashCode ^
         userId.hashCode ^
+        userFullName.hashCode ^
         products.hashCode ^
         status.hashCode ^
         atCreated.hashCode ^

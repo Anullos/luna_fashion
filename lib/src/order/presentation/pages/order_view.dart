@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../routes.dart';
 import '../../../shared/application/providers.dart';
+import '../../../shared/presentation/l10n/generated/l10n.dart';
 import '../widgets/order_card_item.dart';
 
 class OrderView extends ConsumerWidget {
@@ -17,9 +18,9 @@ class OrderView extends ConsumerWidget {
           child: Column(
             children: [
               const SizedBox(height: 20),
-              const Text(
-                'Lista de pedidos',
-                style: TextStyle(
+              Text(
+                S.of(context).orderList,
+                style: const TextStyle(
                   fontSize: 24.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -50,9 +51,9 @@ class OrderView extends ConsumerWidget {
                         margin: const EdgeInsets.symmetric(vertical: 5),
                         decoration:
                             BoxDecoration(color: Colors.black.withOpacity(0.2)),
-                        child: const Align(
+                        child: Align(
                           alignment: Alignment.center,
-                          child: Text('No has realizado ningún pedido'),
+                          child: Text(S.of(context).haveNotPlacedOrder),
                         ),
                       ),
                     ),

@@ -7,6 +7,7 @@ import 'product_order_dto.dart';
 class OrderDto {
   final String id;
   final String userId;
+  final String userFullName;
   final List<ProductOrderDto> products;
   final OrderStatusType status;
   final int atCreated;
@@ -14,6 +15,7 @@ class OrderDto {
   OrderDto({
     required this.id,
     required this.userId,
+    required this.userFullName,
     required this.products,
     required this.status,
     required this.atCreated,
@@ -22,6 +24,7 @@ class OrderDto {
   OrderDto._({
     required this.id,
     required this.userId,
+    required this.userFullName,
     required this.products,
     required this.status,
     required this.atCreated,
@@ -32,6 +35,7 @@ class OrderDto {
     return OrderDto._(
       id: domain.id,
       userId: domain.userId,
+      userFullName: domain.userFullName,
       products:
           domain.products.map((e) => ProductOrderDto.fromDomain(e)).toList(),
       status: domain.status,
@@ -44,6 +48,7 @@ class OrderDto {
     return OrderModel(
       id: id,
       userId: userId,
+      userFullName: userFullName,
       products: products.map((e) => e.toDomain()).toList(),
       status: status,
       atCreated: atCreated,
@@ -55,6 +60,7 @@ class OrderDto {
     return {
       'id': id,
       'userId': userId,
+      'userFullName': userFullName,
       'products': products.map((x) => x.toMap()).toList(),
       'status': status.toString(),
       'atCreated': atCreated,
@@ -66,6 +72,7 @@ class OrderDto {
     return OrderDto(
       id: map['id'] ?? '',
       userId: map['userId'] ?? '',
+      userFullName: map['userFullName'] ?? '',
       products: List<ProductOrderDto>.from(
           map['products']?.map((x) => ProductOrderDto.fromMap(x))),
       status: OrderStatusType.fromString(map['status']),

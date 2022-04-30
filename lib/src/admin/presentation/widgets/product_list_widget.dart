@@ -21,6 +21,7 @@ class ProductListWidget extends ConsumerWidget {
   Widget _buildList(
       BuildContext context, List<ProductModel> products, WidgetRef ref) {
     return ListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: products.length,
       itemBuilder: (context, index) {

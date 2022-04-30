@@ -49,9 +49,7 @@ class ProductItemWidget extends StatelessWidget {
           ],
         ),
         leading: Image.network(product.imageUrl),
-        onTap: () {
-          Navigator.pushNamed(context, '/product', arguments: product);
-        },
+        onTap: () {},
       ),
     );
   }

@@ -46,6 +46,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("¿Olvidaste tu contraseña?"),
         "fullName": MessageLookupByLibrary.simpleMessage("Nombre completo"),
+        "goToCompleted":
+            MessageLookupByLibrary.simpleMessage("Pasar a completado"),
+        "goToPickUp":
+            MessageLookupByLibrary.simpleMessage("Pasar a listo para recoger"),
+        "goToRejected":
+            MessageLookupByLibrary.simpleMessage("Pasar a rechazado"),
         "haveNotItemsInCart": MessageLookupByLibrary.simpleMessage(
             "No tienes productos en el carrito"),
         "haveNotPlacedOrder": MessageLookupByLibrary.simpleMessage(
@@ -73,6 +79,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Operación no permitida"),
         "orderDetails":
             MessageLookupByLibrary.simpleMessage("Detalles del pedido"),
+        "orderList": MessageLookupByLibrary.simpleMessage("Lista de pedidos"),
         "orderSend": MessageLookupByLibrary.simpleMessage("Pedido enviado"),
         "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
         "passwordConfirmation":
@@ -85,12 +92,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "profileInfoCard": MessageLookupByLibrary.simpleMessage(
             "Esta aplicación es una demo para el proyecto final de DAM de Cesur. Esta aplicación no tiene ningún fin comercial y es de uso libre. A sido realizada por Daniel Aranda Maestro"),
         "quantity": MessageLookupByLibrary.simpleMessage("Cantidad: "),
+        "realiceBy": MessageLookupByLibrary.simpleMessage("Realizado por:"),
         "register": MessageLookupByLibrary.simpleMessage("Registrarse"),
         "rejected": MessageLookupByLibrary.simpleMessage("Rechazado"),
         "resume": MessageLookupByLibrary.simpleMessage("Resumen"),
         "sendOrder": MessageLookupByLibrary.simpleMessage("Enviar pedido"),
         "serverError":
             MessageLookupByLibrary.simpleMessage("Error en el servidor"),
+        "serviceTecnic":
+            MessageLookupByLibrary.simpleMessage("Servicio Técnico:"),
         "signOut": MessageLookupByLibrary.simpleMessage("Cerrar sesión"),
         "signup": MessageLookupByLibrary.simpleMessage("Registrar"),
         "status": m0,
@@ -100,6 +110,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "takeAPhoto": MessageLookupByLibrary.simpleMessage("Tomar una foto"),
         "termAndConditions":
             MessageLookupByLibrary.simpleMessage("Términos y condiciones"),
+        "thereNotOrderStatus": MessageLookupByLibrary.simpleMessage(
+            "No hay pedidos en este estado"),
         "tooLong": MessageLookupByLibrary.simpleMessage("Muy largo"),
         "tooShot": MessageLookupByLibrary.simpleMessage("Muy corto"),
         "total": MessageLookupByLibrary.simpleMessage("Total: "),

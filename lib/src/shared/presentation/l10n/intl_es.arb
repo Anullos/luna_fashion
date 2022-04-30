@@ -42,6 +42,7 @@
   "productAdded": "Producto añadido",
   "imageIsRequired": "La imagen es obligatoria",
   "haveNotPlacedOrder": "No has realizado ningún pedido",
+  "thereNotOrderStatus": "No hay pedidos en este estado",
   "pending": "Pendiente",
   "pickUp": "Listo para recoger",
   "rejected": "Rechazado",
@@ -58,5 +59,11 @@
   "haveNotItemsInCart": "No tienes productos en el carrito",
   "orderSend": "Pedido enviado",
   "orderDetails": "Detalles del pedido",
-  "status": "Estado: {status}"
+  "status": "Estado: {status}",
+  "serviceTecnic": "Servicio Técnico:",
+  "realiceBy": "Realizado por:",
+  "orderList": "Lista de pedidos",
+  "goToPickUp": "Pasar a listo para recoger",
+  "goToRejected": "Pasar a rechazado",
+  "goToCompleted": "Pasar a completado"
 }

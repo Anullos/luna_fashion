@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../../../shared/presentation/l10n/generated/l10n.dart';
 import '../../domain/types/order_status_type.dart';
@@ -22,5 +22,25 @@ extension OrderStatusTranslation on OrderStatusType {
     }
 
     return S.of(context).empty;
+  }
+
+  Color getColor() {
+    if (this is OrderStatusTypePending) {
+      return Colors.orange;
+    }
+
+    if (this is OrderStatusTypePickUp) {
+      return Colors.purpleAccent;
+    }
+
+    if (this is OrderStatusTypeRejected) {
+      return Colors.red;
+    }
+
+    if (this is OrderStatusTypeCompleted) {
+      return Colors.green;
+    }
+
+    return Colors.black;
   }
 }

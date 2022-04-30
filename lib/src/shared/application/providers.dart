@@ -4,6 +4,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../admin/application/add_product_controller.dart';
+import '../../admin/application/update_status_order_notifier.dart';
 import '../../admin/infrastructure/admin_repository_implements.dart';
 import '../../cart/application/cart_controller.dart';
 import '../../order/infrastructure/order_repository_implements.dart';
@@ -11,6 +12,8 @@ import '../../product/application/product_details_controller.dart';
 import '../../product/application/products_controller.dart';
 import '../../product/infratructure/cart_repository_implements.dart';
 import '../../product/infratructure/products_repository_implements.dart';
+import '../domain/failures/firebase_failure.dart';
+import '../presentation/utils/result_or.dart';
 import 'home_controller.dart';
 import '../../user/infrastructure/user_repository_implements.dart';
 import '../../auth/application/onboarding_controller.dart';
@@ -161,6 +164,22 @@ final productsList = StreamProvider.autoDispose(
     final repository = ref.watch(adminRepositoryProvider);
     final response = repository.getProducts();
     yield* response;
+  },
+);
+
+final ordersAdminStream = StreamProvider.autoDispose(
+  (ref) async* {
+    final repository = ref.watch(adminRepositoryProvider);
+    final response = repository.getOrders();
+    yield* response;
+  },
+);
+
+final updateOrderNotifier =
+    StateNotifierProvider<UpdateOrderNotifier, ResultOr<FirebaseFailure>>(
+  (ref) {
+    final repository = ref.watch(adminRepositoryProvider);
+    return UpdateOrderNotifier(repository);
   },
 );
 
