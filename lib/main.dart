@@ -3,12 +3,14 @@ import 'dart:async';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'src/shared/application/providers.dart';
 import 'src/shared/presentation/l10n/generated/l10n.dart';
+import 'src/shared/presentation/utils/const.dart';
 import 'src/shared/presentation/utils/logger_config.dart';
 import 'src/shared/presentation/utils/providers_logger.dart';
 import 'routes.dart';
@@ -18,6 +20,14 @@ Future<void> main() async {
   await Firebase.initializeApp();
 
   LoggerConfig.init(crashlytics: FirebaseCrashlytics.instance);
+
+  final remoteInstance = FirebaseRemoteConfig.instance;
+  final updated = await remoteInstance.fetchAndActivate();
+  if (updated) {
+    messageKey = remoteInstance.getString('tokenFirebase');
+  } else {
+    messageKey = remoteInstance.getString('tokenFirebase');
+  }
 
   runZonedGuarded(
       () => runApp(
