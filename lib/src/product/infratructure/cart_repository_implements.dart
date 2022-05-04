@@ -51,12 +51,16 @@ class CartRepositoryImplements extends CartRepositoryInterface {
       String productId, UserModel user) async {
     try {
       final currentCart = user.currentCart;
-      currentCart.removeWhere((productOrder) => productOrder.id == productId);
+      currentCart.removeWhere((element) => element.id == productId);
+
+      final data = currentCart
+          .map((e) => ProductOrderDto.fromDomain(e).toMap())
+          .toList();
 
       await _firebaseFirestore
           .collection(userCollection)
           .doc(user.id)
-          .set({'currentCart': currentCart}, SetOptions(merge: true));
+          .set({'currentCart': data}, SetOptions(merge: true));
 
       return ResultOr.success();
     } catch (e, _) {

@@ -57,6 +57,7 @@ class OrderView extends ConsumerWidget {
                         ),
                       ),
                     ),
+              const SizedBox(height: 70),
             ],
           ),
         );
