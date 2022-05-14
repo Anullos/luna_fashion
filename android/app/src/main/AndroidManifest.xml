@@ -2,7 +2,7 @@
     package="es.anullos.luna_fashion">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="luna_fashion"
+        android:label="Luna Fashion"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
